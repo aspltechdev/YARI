@@ -1,0 +1,1744 @@
+/* =====================================================
+   INDUSTRIES PAGE
+   ===================================================== */
+
+.industries-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.industries-navbar {
+  width: 100%;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 0 65px;
+
+  box-sizing: border-box;
+
+  background: #071b2d;
+}
+
+.industries-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.industries-nav-links a {
+  position: relative;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+.industries-nav-links a:hover {
+  color: #10a8d9;
+}
+
+.industries-nav-links a.active {
+  color: #10a8d9;
+}
+
+.industries-nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -8px;
+
+  height: 2px;
+
+  background: #10a8d9;
+}
+
+
+/* =====================================================
+   INDUSTRIES HERO
+   ===================================================== */
+
+.industries-hero {
+  position: relative;
+
+  width: 100%;
+  height: 415px;
+
+  overflow: hidden;
+
+  background: #071b2d;
+}
+
+
+/* =====================================================
+   IMAGE SLIDER
+   ===================================================== */
+
+.industries-slider {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.industries-slide {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  transform: translateX(100%);
+
+  animation: industriesSlideAnimation 15s infinite;
+}
+
+
+/* =====================================================
+   SLIDE DELAY
+   ===================================================== */
+
+.industries-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.industries-slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.industries-slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+
+/* =====================================================
+   SLIDER IMAGE
+   ===================================================== */
+
+.industries-slide img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+/* =====================================================
+   RIGHT TO LEFT ANIMATION
+   ===================================================== */
+
+@keyframes industriesSlideAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+
+  12% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  28% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  34% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+
+  34.01% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+
+/* =====================================================
+   DARK OVERLAY
+   ===================================================== */
+
+.industries-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 18, 31, 0.78) 0%,
+      rgba(4, 18, 31, 0.62) 35%,
+      rgba(4, 18, 31, 0.35) 70%,
+      rgba(4, 18, 31, 0.48) 100%
+    );
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+   ===================================================== */
+
+.industries-content {
+  position: absolute;
+
+  left: 40px;
+  top: 0;
+
+  width: calc(100% - 80px);
+  height: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  color: #ffffff;
+
+  z-index: 3;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   HERO EYEBROW
+   ===================================================== */
+
+.industries-eyebrow {
+  margin: 0 0 26px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   HERO TITLE
+   ===================================================== */
+
+.industries-content h1 {
+  margin: 0;
+  padding: 0;
+
+  max-width: 650px;
+
+  color: #ffffff;
+
+  font-size: 40px;
+  line-height: 1.3;
+
+  font-weight: 800;
+
+  letter-spacing: -0.4px;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+   ===================================================== */
+
+.industries-description {
+  max-width: 520px;
+
+  margin: 22px 0 0;
+
+  color: #e2e7ea;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   SLIDER DOTS
+   ===================================================== */
+
+.industries-slider-dots {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  z-index: 5;
+}
+
+.industries-slider-dots span {
+  display: block;
+
+  width: 20px;
+  height: 3px;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  opacity: 0.95;
+}
+
+
+/* =====================================================
+   INDUSTRY SERVICES SECTION
+   ===================================================== */
+
+.industry-services-section {
+  width: 100%;
+
+  background: #ffffff;
+
+  /*
+    IMPORTANT:
+    Reduced bottom padding so the Custom Applications
+    section does not get pushed too far down.
+  */
+  padding: 85px 50px 10px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   SERVICES CONTAINER
+   ===================================================== */
+
+.industry-services-container {
+  width: 100%;
+
+  max-width: 1320px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 48px;
+}
+
+
+/* =====================================================
+   INDUSTRY SERVICE CARD
+   ===================================================== */
+
+.industry-service-card {
+  width: 100%;
+
+  min-height: 315px;
+
+  padding: 28px 40px;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns: 520px minmax(0, 1fr);
+
+  column-gap: 60px;
+
+  align-items: center;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f2;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.industry-service-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =====================================================
+   INDUSTRY IMAGE
+   ===================================================== */
+
+.industry-service-image {
+  width: 100%;
+
+  height: 258px;
+
+  overflow: hidden;
+
+  border-radius: 7px;
+}
+
+.industry-service-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+.industry-service-card:hover
+.industry-service-image img {
+  transform: scale(1.04);
+}
+
+
+/* =====================================================
+   INDUSTRY CONTENT
+   ===================================================== */
+
+.industry-service-content {
+  width: 100%;
+
+  min-width: 0;
+
+  padding: 5px 0;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+}
+
+
+/* =====================================================
+   INDUSTRY TITLE
+   ===================================================== */
+
+.industry-service-content h3 {
+  margin: 0 0 22px;
+
+  color: #071b2d;
+
+  font-size: 25px;
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.industry-service-description {
+  width: 100%;
+
+  max-width: 650px;
+
+  margin: 0 auto 26px;
+
+  color: #85898c;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   FEATURES
+   ===================================================== */
+
+.industry-service-features {
+  width: 100%;
+
+  max-width: 650px;
+
+  margin: 0 auto 27px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  column-gap: 55px;
+
+  row-gap: 18px;
+}
+
+.industry-feature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #182d3e;
+
+  font-size: 13px;
+
+  line-height: 1.35;
+
+  white-space: nowrap;
+}
+
+.industry-feature-dot {
+  flex-shrink: 0;
+
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  background: #18a9d7;
+}
+
+
+/* =====================================================
+   CONTACT BUTTON
+   ===================================================== */
+
+.industry-service-button {
+  align-self: flex-start;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-width: 159px;
+
+  height: 50px;
+
+  padding: 0 22px;
+
+  box-sizing: border-box;
+
+  border-radius: 6px;
+
+  background: #18a9d7;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.industry-service-button span {
+  font-size: 19px;
+
+  line-height: 1;
+}
+
+.industry-service-button:hover {
+  background: #078fbd;
+
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   CUSTOM APPLICATIONS SECTION
+   ===================================================== */
+
+.industries-custom-section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 280px;
+
+  margin-top: 30px;
+
+  overflow: hidden;
+
+  background: #0b7fba;
+
+  text-align: center;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CUSTOM APPLICATIONS IMAGE
+   ===================================================== */
+
+.industries-custom-background {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: 0;
+}
+
+
+/* =====================================================
+   CUSTOM APPLICATIONS OVERLAY
+   ===================================================== */
+
+.industries-custom-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 119, 180, 0.78);
+
+  z-index: 1;
+}
+
+
+/* =====================================================
+   CUSTOM APPLICATIONS CONTENT
+   ===================================================== */
+
+.industries-custom-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 45px 30px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   CUSTOM EYEBROW
+   ===================================================== */
+
+.industries-custom-eyebrow {
+  margin: 0 0 14px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   CUSTOM TITLE
+   ===================================================== */
+
+.industries-custom-content h2 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: 32px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   CUSTOM DESCRIPTION
+   ===================================================== */
+
+.industries-custom-content p {
+  max-width: 900px;
+
+  margin: 0 auto 24px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   CUSTOM BUTTON
+   ===================================================== */
+
+.industries-custom-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 185px;
+
+  height: 48px;
+
+  padding: 0 25px;
+
+  box-sizing: border-box;
+
+  border-radius: 6px;
+
+  background: #18a9d7;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.industries-custom-button:hover {
+  background: #078fbd;
+
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   TABLET - 1200px
+   ===================================================== */
+
+@media (max-width: 1200px) {
+
+  .industries-navbar {
+    padding: 0 45px;
+  }
+
+  .industry-services-section {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 10px;
+  }
+
+  .industry-service-card {
+    grid-template-columns: 46% 54%;
+
+    column-gap: 35px;
+
+    padding: 28px;
+  }
+
+  .industry-service-image {
+    height: 250px;
+  }
+
+  .industry-service-content h3 {
+    font-size: 23px;
+  }
+
+  .industry-service-description {
+    font-size: 14px;
+  }
+
+  .industry-service-features {
+    column-gap: 30px;
+  }
+}
+
+
+/* =====================================================
+   TABLET - 900px
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  .industries-navbar {
+    padding: 0 30px;
+  }
+
+  .industries-nav-links {
+    gap: 20px;
+  }
+
+
+  /* HERO */
+
+  .industries-hero {
+    height: 430px;
+  }
+
+  .industries-content {
+    left: 30px;
+
+    width: calc(100% - 60px);
+  }
+
+  .industries-content h1 {
+    font-size: 36px;
+  }
+
+
+  /* SERVICES */
+
+  .industry-services-section {
+    padding: 65px 30px 10px;
+  }
+
+  .industry-services-container {
+    gap: 35px;
+  }
+
+  .industry-service-card {
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 28px;
+
+    min-height: 285px;
+
+    padding: 22px;
+  }
+
+  .industry-service-image {
+    height: 235px;
+  }
+
+  .industry-service-content h3 {
+    font-size: 20px;
+
+    margin-bottom: 16px;
+  }
+
+  .industry-service-description {
+    font-size: 13px;
+
+    margin-bottom: 20px;
+  }
+
+  .industry-service-features {
+    column-gap: 20px;
+
+    row-gap: 14px;
+
+    margin-bottom: 22px;
+  }
+
+  .industry-feature {
+    font-size: 11px;
+
+    gap: 8px;
+  }
+
+  .industry-feature-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .industry-service-button {
+    min-width: 130px;
+
+    height: 43px;
+
+    padding: 0 17px;
+
+    font-size: 12px;
+  }
+
+
+  /* CUSTOM APPLICATIONS */
+
+  .industries-custom-section {
+    min-height: 260px;
+
+    margin-top: 25px;
+  }
+
+  .industries-custom-content h2 {
+    font-size: 28px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE - 600px
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  /* NAVIGATION */
+
+  .industries-navbar {
+    height: auto;
+
+    padding: 20px;
+  }
+
+  .industries-nav-links {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px 20px;
+  }
+
+
+  /* HERO */
+
+  .industries-hero {
+    height: 500px;
+  }
+
+  .industries-content {
+    left: 25px;
+
+    width: calc(100% - 50px);
+  }
+
+  .industries-eyebrow {
+    margin-bottom: 20px;
+
+    font-size: 13px;
+  }
+
+  .industries-content h1 {
+    max-width: 100%;
+
+    font-size: 30px;
+
+    line-height: 1.3;
+  }
+
+  .industries-description {
+    max-width: 350px;
+
+    font-size: 12px;
+  }
+
+
+  /* DOTS */
+
+  .industries-slider-dots {
+    bottom: 20px;
+
+    gap: 15px;
+  }
+
+
+  /* SERVICES */
+
+  .industry-services-section {
+    padding: 45px 20px 10px;
+  }
+
+  .industry-services-container {
+    gap: 25px;
+  }
+
+  .industry-service-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    min-height: auto;
+
+    padding: 15px;
+
+    column-gap: 0;
+  }
+
+  .industry-service-image {
+    width: 100%;
+
+    height: 230px;
+  }
+
+  .industry-service-content {
+    padding: 25px 5px 8px;
+  }
+
+  .industry-service-content h3 {
+    font-size: 21px;
+
+    text-align: left;
+
+    margin-bottom: 16px;
+  }
+
+  .industry-service-description {
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: left;
+  }
+
+  .industry-service-features {
+    max-width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 13px;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    margin-bottom: 22px;
+  }
+
+  .industry-feature {
+    font-size: 12px;
+
+    white-space: normal;
+  }
+
+  .industry-service-button {
+    align-self: flex-start;
+
+    width: 130px;
+
+    min-width: 130px;
+
+    height: 44px;
+  }
+
+
+  /* CUSTOM APPLICATIONS */
+
+  .industries-custom-section {
+    min-height: 300px;
+
+    margin-top: 25px;
+  }
+
+  .industries-custom-content {
+    padding: 40px 20px;
+  }
+
+  .industries-custom-eyebrow {
+    font-size: 12px;
+
+    margin-bottom: 12px;
+  }
+
+  .industries-custom-content h2 {
+    font-size: 25px;
+
+    line-height: 1.3;
+  }
+
+  .industries-custom-content p {
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    margin-bottom: 22px;
+  }
+
+  .industries-custom-button {
+    min-width: 175px;
+
+    height: 44px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE - 400px
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+  .industries-navbar {
+    padding: 18px 15px;
+  }
+
+  .industries-nav-links {
+    gap: 13px 16px;
+  }
+
+
+  /* HERO */
+
+  .industries-hero {
+    height: 480px;
+  }
+
+  .industries-content {
+    left: 20px;
+
+    width: calc(100% - 40px);
+  }
+
+  .industries-content h1 {
+    font-size: 27px;
+  }
+
+  .industries-description {
+    font-size: 11px;
+  }
+
+
+  /* SERVICES */
+
+  .industry-services-section {
+    padding: 40px 15px 10px;
+  }
+
+  .industry-service-image {
+    height: 200px;
+  }
+
+  .industry-service-content {
+    padding-left: 3px;
+
+    padding-right: 3px;
+  }
+
+  .industry-service-content h3 {
+    font-size: 19px;
+  }
+
+  .industry-service-description {
+    font-size: 12px;
+  }
+
+  .industry-feature {
+    font-size: 11px;
+  }
+
+  .industry-service-button {
+    width: 125px;
+
+    min-width: 125px;
+
+    height: 42px;
+
+    font-size: 11px;
+  }
+
+
+  /* CUSTOM APPLICATIONS */
+
+  .industries-custom-section {
+    margin-top: 20px;
+
+    min-height: 320px;
+  }
+
+  .industries-custom-content {
+    padding: 35px 15px;
+  }
+
+  .industries-custom-content h2 {
+    font-size: 23px;
+  }
+
+  .industries-custom-content p {
+    font-size: 11px;
+  }
+
+  .industries-custom-button {
+    width: 100%;
+
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.home-footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #081b2d;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FOOTER MAIN
+   ========================================================= */
+
+.footer-main {
+  position: relative;
+  width: 100%;
+  min-height: 245px;
+  padding: 20px 5.2% 28px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.15fr;
+  column-gap: 70px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-column {
+  min-width: 0;
+}
+
+.footer-column h3 {
+  margin: 0 0 14px;
+  padding: 0;
+
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.footer-column p {
+  margin: 0;
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.footer-company {
+  padding-left: 0;
+}
+
+.footer-company h3 {
+  white-space: nowrap;
+}
+
+.footer-company p {
+  max-width: 300px;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 43px;
+}
+
+.footer-socials a {
+  width: 19px;
+  height: 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #081b2d;
+
+  border-radius: 4px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+  background: #16b8e8;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+   ========================================================= */
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-links h3 {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  margin-bottom: 12px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #16b8e8;
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.footer-contact {
+  padding-left: 0;
+}
+
+.footer-email {
+  display: inline-block;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+  color: #16b8e8;
+}
+
+.footer-contact-title {
+  margin-top: 22px !important;
+  margin-bottom: 10px !important;
+}
+
+.footer-contact p {
+  max-width: 360px;
+}
+
+
+/* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+
+.footer-back-top {
+  position: absolute;
+
+  right: 4.1%;
+  top: 170px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #16b8e8;
+  color: #ffffff;
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.footer-back-top:hover {
+  transform: translateY(-3px);
+  background: #0da8d6;
+}
+
+.footer-back-top span {
+  display: block;
+
+  height: 7px;
+
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 5px;
+}
+
+.footer-back-top span + span {
+  margin-top: -3px;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  width: 100%;
+  min-height: 54px;
+
+  padding: 0 3.8%;
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+
+  box-sizing: border-box;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   FOOTER - LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  .footer-main {
+    min-height: 245px;
+    padding:
+      20px
+      5.2%
+      28px;
+
+    grid-template-columns:
+      1.35fr
+      1fr
+      1.15fr;
+
+    column-gap: 80px;
+  }
+
+  .footer-column h3 {
+    font-size: 15px;
+  }
+
+  .footer-column p,
+  .footer-links a,
+  .footer-email {
+    font-size: 12px;
+  }
+
+  .footer-back-top {
+    right: 4.1%;
+    top: 170px;
+  }
+}
+
+
+/* =========================================================
+   FOOTER - LAPTOP
+   ========================================================= */
+
+@media (min-width: 1101px) and (max-width: 1599px) {
+
+  .footer-main {
+    min-height: 245px;
+    padding:
+      20px
+      5%
+      28px;
+
+    grid-template-columns:
+      1.3fr
+      1fr
+      1.15fr;
+
+    column-gap: 50px;
+  }
+
+  .footer-back-top {
+    right: 4%;
+    top: 170px;
+  }
+}
+
+
+/* =========================================================
+   FOOTER - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .footer-main {
+    min-height: 260px;
+    padding:
+      28px
+      30px
+      30px;
+
+    grid-template-columns:
+      1.2fr
+      1fr
+      1.2fr;
+
+    column-gap: 30px;
+  }
+
+  .footer-company h3 {
+    white-space: normal;
+  }
+
+  .footer-back-top {
+    right: 25px;
+    top: 175px;
+  }
+
+}
+
+
+/* =========================================================
+   FOOTER - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .footer-main {
+    min-height: auto;
+
+    padding:
+      45px
+      22px
+      35px;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    row-gap: 35px;
+  }
+
+  .footer-company h3 {
+    white-space: normal;
+  }
+
+  .footer-company p {
+    max-width: 100%;
+  }
+
+  .footer-socials {
+    margin-top: 25px;
+  }
+
+  .footer-links {
+    margin-top: 5px;
+  }
+
+  .footer-contact {
+    margin-top: 5px;
+    padding-bottom: 40px;
+  }
+
+  .footer-contact p {
+    max-width: 100%;
+  }
+
+  .footer-back-top {
+    right: 22px;
+    top: auto;
+    bottom: 30px;
+
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer-bottom {
+    min-height: 65px;
+    padding:
+      0
+      22px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+
+
+/* =========================================================
+   FOOTER - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+  .footer-main {
+    padding:
+      40px
+      18px
+      30px;
+
+    row-gap: 30px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .footer-column p,
+  .footer-links a,
+  .footer-email {
+    font-size: 11px;
+  }
+
+  .footer-contact-title {
+    margin-top: 20px !important;
+  }
+
+  .footer-bottom {
+    min-height: 65px;
+    padding:
+      0
+      18px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+
+  .footer-back-top {
+    right: 18px;
+    bottom: 25px;
+  }
+}

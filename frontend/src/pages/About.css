@@ -1,0 +1,2368 @@
+/* =====================================================
+   ABOUT PAGE
+   ===================================================== */
+
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.about-navbar {
+  width: 100%;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 0 65px;
+
+  box-sizing: border-box;
+
+  background: #071b2d;
+}
+
+.about-nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.about-nav-links a {
+  position: relative;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+.about-nav-links a:hover {
+  color: #10a8d9;
+}
+
+.about-nav-links a.active {
+  color: #10a8d9;
+}
+
+.about-nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -8px;
+
+  height: 2px;
+
+  background: #10a8d9;
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.about-hero {
+  position: relative;
+
+  width: 100%;
+  height: 452px;
+
+  overflow: hidden;
+
+  background: #071b2d;
+}
+
+
+/* =====================================================
+   HERO IMAGE SLIDER
+   ===================================================== */
+
+.about-hero-slider {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.about-hero-slide {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  transform: translateX(100%);
+
+  animation: aboutHeroSlide 15s infinite;
+}
+
+
+/* =====================================================
+   SLIDE TIMING
+   ===================================================== */
+
+.about-hero-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.about-hero-slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.about-hero-slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+
+/* =====================================================
+   HERO IMAGES
+   ===================================================== */
+
+.about-hero-slide img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center center;
+}
+
+
+/* =====================================================
+   HERO SLIDE ANIMATION
+   ===================================================== */
+
+@keyframes aboutHeroSlide {
+
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+
+  12% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  28% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  34% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+
+  34.01% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+
+/* =====================================================
+   HERO OVERLAY
+   ===================================================== */
+
+.about-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(4, 20, 34, 0.48);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+   ===================================================== */
+
+.about-hero-content {
+  position: absolute;
+
+  left: 40px;
+  top: 0;
+
+  z-index: 3;
+
+  width: calc(100% - 80px);
+  height: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   HERO EYEBROW
+   ===================================================== */
+
+.about-hero-eyebrow {
+  margin: 0 0 25px;
+
+  color: #10a8d9;
+
+  font-size: 14px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =====================================================
+   HERO TITLE
+   ===================================================== */
+
+.about-hero-content h1 {
+  margin: 0;
+  padding: 0;
+
+  max-width: 650px;
+
+  color: #ffffff;
+
+  font-size: 42px;
+
+  line-height: 1.35;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+   ===================================================== */
+
+.about-hero-description {
+  margin: 22px 0 0;
+
+  max-width: 520px;
+
+  color: #e2e7ea;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   SLIDER DOTS
+   ===================================================== */
+
+.about-slider-dots {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  z-index: 5;
+}
+
+.about-slider-dots span {
+  display: block;
+
+  width: 22px;
+  height: 3px;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  opacity: 0.95;
+}
+
+.about-slider-dots span.active {
+  width: 22px;
+}
+
+
+/* =====================================================
+   WHO WE ARE
+   ===================================================== */
+
+.who-we-are-section {
+  background: #ffffff;
+
+  padding: 40px 0 30px;
+}
+
+.who-we-are-container {
+  display: grid;
+
+  grid-template-columns: 47% 53%;
+
+  align-items: stretch;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   WHO WE ARE IMAGE
+   ===================================================== */
+
+.who-we-are-image {
+  width: 100%;
+  height: 347px;
+
+  overflow: hidden;
+}
+
+.who-we-are-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+
+/* =====================================================
+   WHO WE ARE CONTENT
+   ===================================================== */
+
+.who-we-are-content {
+  padding: 10px 40px 10px 24px;
+}
+
+.about-section-eyebrow {
+  margin: 0 0 20px;
+
+  color: #08a5d7;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   KEEP WHO WE ARE BLUE
+   ===================================================== */
+
+.who-we-are-content .about-section-eyebrow {
+  color: #08a5d7 !important;
+}
+
+.who-we-are-content h2 {
+  margin: 0 0 18px;
+
+  color: #071b2d;
+
+  font-size: 31px;
+
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+.who-we-are-content p {
+  margin: 0 0 17px;
+
+  color: #0d1f2e;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+
+  text-align: left;
+}
+
+.who-we-are-content .who-intro {
+  color: #8a8f93;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   OUR VALUES SECTION
+   ===================================================== */
+
+.about-values-section {
+  width: 100%;
+
+  background: #f4f9fc;
+
+  padding: 42px 46px 65px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   OUR VALUES CONTAINER
+   ===================================================== */
+
+.about-values-container {
+  width: 100%;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   OUR VALUES EYEBROW
+   ===================================================== */
+
+.about-values-container .about-section-eyebrow {
+  margin: 0 0 20px;
+
+  color: #08a5d7;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   OUR VALUES TITLE
+   ===================================================== */
+
+.about-section-title {
+  margin: 0 0 12px;
+
+  padding: 0;
+
+  color: #071b2d;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   OUR VALUES DESCRIPTION
+   ===================================================== */
+
+.about-section-description {
+  margin: 0 0 36px;
+
+  padding: 0;
+
+  color: #888f94;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   VALUES GRID
+   ===================================================== */
+
+.values-grid {
+  width: 100%;
+
+  max-width: 837px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 138px;
+
+  row-gap: 37px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   VALUE CARD
+   ===================================================== */
+
+.value-card {
+  min-height: 75px;
+
+  display: flex;
+
+  align-items: stretch;
+
+  background: #071b2d;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   VALUE ICON
+   ===================================================== */
+
+.value-icon {
+  width: 44px;
+
+  min-width: 44px;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #10a8d9;
+
+  color: #ffffff;
+
+  box-sizing: border-box;
+}
+
+.value-icon svg {
+  display: block;
+
+  width: 22px;
+  height: 22px;
+}
+
+
+/* =====================================================
+   VALUE CONTENT
+   ===================================================== */
+
+.value-content {
+  flex: 1;
+
+  padding: 11px 14px 10px;
+
+  box-sizing: border-box;
+}
+
+.value-content h3 {
+  margin: 0 0 6px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+}
+
+.value-content p {
+  margin: 0;
+
+  color: #d6dde2;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* =====================================================
+   ENGINEERING APPROACH
+   ===================================================== */
+
+.engineering-approach-section {
+  position: relative;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  padding: 42px 0 90px;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+}
+
+
+/* =====================================================
+   ENGINEERING DARK BACKGROUND
+   ===================================================== */
+
+/*
+   The dark background stops at the middle of
+   the approach cards.
+
+   Cards therefore appear:
+   - Top half over dark background
+   - Bottom half over white background
+*/
+
+.engineering-approach-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 280px;
+
+  background: #071b2d;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   ENGINEERING APPROACH CONTAINER
+   ===================================================== */
+
+.engineering-approach-container {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0 58px;
+
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   ENGINEERING APPROACH HEADING
+   ===================================================== */
+
+.engineering-approach-heading {
+  width: 100%;
+
+  max-width: 650px;
+
+  margin: 0;
+
+  padding: 0;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   ENGINEERING APPROACH EYEBROW
+   ===================================================== */
+
+.engineering-approach-heading .about-section-eyebrow {
+  margin: 0 0 20px;
+
+  color: #08a5d7;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   ENGINEERING APPROACH TITLE
+   ===================================================== */
+
+.engineering-approach-title {
+  margin: 0;
+
+  padding: 0;
+
+  color: #ffffff;
+
+  font-size: 32px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   ENGINEERING APPROACH DESCRIPTION
+   ===================================================== */
+
+.engineering-approach-description {
+  width: 100%;
+
+  max-width: 520px;
+
+  margin: 18px 0 40px;
+
+  padding: 0;
+
+  color: #929da5;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   APPROACH CARDS GRID
+   ===================================================== */
+
+.approach-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 28px;
+
+  margin: 0;
+
+  padding: 0;
+
+  position: relative;
+
+  z-index: 3;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   APPROACH CARD
+   ===================================================== */
+
+.approach-card {
+  position: relative;
+
+  z-index: 3;
+
+  min-width: 0;
+
+  min-height: 163px;
+
+  background: #ffffff;
+
+  border-radius: 6px;
+
+  padding: 22px 17px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   APPROACH NUMBER
+   ===================================================== */
+
+.approach-number {
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 11px;
+
+  border-radius: 50%;
+
+  background: #d7f1fa;
+
+  color: #08a5d7;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   APPROACH CARD TITLE
+   ===================================================== */
+
+.approach-card h3 {
+  margin: 0 0 9px;
+
+  color: #071b2d;
+
+  font-size: 14px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   APPROACH CARD DESCRIPTION
+   ===================================================== */
+
+.approach-card p {
+  margin: 0;
+
+  color: #969ca0;
+
+  font-size: 11px;
+
+  line-height: 1.45;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   START A PROJECT SECTION
+   ===================================================== */
+
+/*
+   This section starts AFTER the engineering cards.
+
+   It is intentionally separate from the engineering
+   background so the cards remain visible above it.
+*/
+
+.start-project-section {
+  position: relative;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  padding: 75px 58px 80px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+.start-project-container {
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
+
+
+.start-project-eyebrow {
+  margin: 0 0 18px;
+
+  color: #08a5d7;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+
+.start-project-title {
+  margin: 0 0 18px;
+
+  color: #071b2d;
+
+  font-size: 36px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+.start-project-description {
+  max-width: 650px;
+
+  margin: 0 auto 30px;
+
+  color: #888f94;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   START PROJECT BUTTON
+   ===================================================== */
+
+.start-project-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 145px;
+
+  height: 44px;
+
+  padding: 0 25px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #08a5d7;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.start-project-button:hover {
+  background: #078db8;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 15px rgba(8, 165, 215, 0.22);
+}
+
+
+/* =====================================================
+   CTA SECTION
+   ===================================================== */
+
+.cta-section {
+  position: relative;
+
+  width: 100%;
+
+  background: #071b2d;
+
+  padding: 65px 58px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   CTA DECORATIVE BACKGROUND
+   ===================================================== */
+
+.cta-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -100px;
+  top: -120px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  pointer-events: none;
+}
+
+.cta-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  right: -60px;
+  top: -80px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(8, 165, 215, 0.12);
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   CTA CONTAINER
+   ===================================================== */
+
+.cta-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 50px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CTA CONTENT
+   ===================================================== */
+
+.cta-content {
+  flex: 1;
+
+  min-width: 0;
+
+  text-align: left;
+}
+
+
+.cta-eyebrow {
+  margin: 0 0 15px;
+
+  color: #08a5d7;
+
+  font-size: 13px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+
+.cta-title {
+  margin: 0 0 15px;
+
+  color: #ffffff;
+
+  font-size: 32px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+.cta-description {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #aeb9c0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+
+/* =====================================================
+   CTA BUTTON AREA
+   ===================================================== */
+
+.cta-action {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.cta-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 155px;
+
+  height: 46px;
+
+  padding: 0 28px;
+
+  border: 1px solid #08a5d7;
+
+  border-radius: 4px;
+
+  background: #08a5d7;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.cta-button:hover {
+  background: transparent;
+
+  color: #08a5d7;
+
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   TABLET - 1100px
+   ===================================================== */
+
+@media (max-width: 1100px) {
+
+  .about-navbar {
+    padding: 0 40px;
+  }
+
+
+  /* ENGINEERING APPROACH */
+
+  .engineering-approach-container {
+    padding: 0 40px;
+  }
+
+  .approach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+
+
+  /*
+     Two rows of cards.
+
+     Dark background crosses the first row
+     around its middle.
+  */
+
+  .engineering-approach-section::before {
+    height: 280px;
+  }
+
+
+  /* START PROJECT */
+
+  .start-project-section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+
+  /* CTA */
+
+  .cta-section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+/* =====================================================
+   TABLET - 900px
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  .about-navbar {
+    padding: 0 30px;
+  }
+
+  .about-nav-links {
+    gap: 20px;
+  }
+
+
+  /* =================================================
+     HERO
+     ================================================= */
+
+  .about-hero-content {
+    left: 30px;
+
+    width: calc(100% - 60px);
+  }
+
+  .about-hero-content h1 {
+    font-size: 36px;
+  }
+
+
+  /* =================================================
+     WHO WE ARE
+     ================================================= */
+
+  .who-we-are-container {
+    grid-template-columns: 1fr;
+  }
+
+  .who-we-are-image {
+    height: 350px;
+  }
+
+  .who-we-are-content {
+    padding: 35px 30px;
+  }
+
+
+  /* =================================================
+     VALUES
+     ================================================= */
+
+  .about-values-section {
+    padding: 50px 30px 70px;
+  }
+
+  .values-grid {
+    max-width: 837px;
+
+    column-gap: 40px;
+  }
+
+
+  /* =================================================
+     ENGINEERING APPROACH
+     ================================================= */
+
+  .engineering-approach-section {
+    padding: 45px 0 80px;
+  }
+
+  .engineering-approach-container {
+    padding: 0 30px;
+  }
+
+  .engineering-approach-heading {
+    max-width: 650px;
+  }
+
+  .approach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+
+
+  /*
+     Two rows.
+
+     The dark background crosses the
+     upper cards around their center.
+  */
+
+  .engineering-approach-section::before {
+    height: 280px;
+  }
+
+
+  /* =================================================
+     START PROJECT
+     ================================================= */
+
+  .start-project-section {
+    padding: 65px 30px 70px;
+  }
+
+  .start-project-title {
+    font-size: 32px;
+  }
+
+
+  /* =================================================
+     CTA
+     ================================================= */
+
+  .cta-section {
+    padding: 55px 30px;
+  }
+
+  .cta-container {
+    gap: 35px;
+  }
+
+  .cta-title {
+    font-size: 29px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE - 600px
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  /* =================================================
+     NAVIGATION
+     ================================================= */
+
+  .about-navbar {
+    height: auto;
+
+    padding: 20px;
+  }
+
+  .about-nav-links {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px 20px;
+  }
+
+
+  /* =================================================
+     HERO
+     ================================================= */
+
+  .about-hero {
+    height: 500px;
+  }
+
+  .about-hero-content {
+    left: 25px;
+
+    width: calc(100% - 50px);
+
+    justify-content: center;
+  }
+
+  .about-hero-content h1 {
+    max-width: 100%;
+
+    font-size: 30px;
+
+    line-height: 1.3;
+  }
+
+  .about-hero-description {
+    max-width: 350px;
+  }
+
+
+  /* =================================================
+     DOTS
+     ================================================= */
+
+  .about-slider-dots {
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+
+  /* =================================================
+     WHO WE ARE
+     ================================================= */
+
+  .who-we-are-section {
+    padding: 30px 0;
+  }
+
+  .who-we-are-image {
+    height: 280px;
+  }
+
+  .who-we-are-content {
+    padding: 30px 20px;
+  }
+
+  .who-we-are-content h2 {
+    font-size: 27px;
+  }
+
+
+  /* =================================================
+     VALUES
+     ================================================= */
+
+  .about-values-section {
+    padding: 45px 20px 60px;
+  }
+
+  .about-values-container {
+    width: 100%;
+
+    text-align: left;
+  }
+
+  .about-values-container .about-section-eyebrow {
+    text-align: left;
+  }
+
+  .about-section-title {
+    font-size: 27px;
+
+    text-align: left;
+  }
+
+  .about-section-description {
+    font-size: 13px;
+
+    text-align: left;
+  }
+
+  .values-grid {
+    width: 100%;
+
+    max-width: none;
+
+    grid-template-columns: 1fr;
+
+    column-gap: 0;
+
+    row-gap: 18px;
+
+    margin: 0;
+  }
+
+
+  /* =================================================
+     ENGINEERING APPROACH
+     ================================================= */
+
+  .engineering-approach-section {
+    padding: 45px 0 65px;
+
+    background: #ffffff;
+  }
+
+  .engineering-approach-container {
+    padding: 0 20px;
+  }
+
+  .engineering-approach-heading {
+    max-width: 100%;
+  }
+
+  .engineering-approach-heading .about-section-eyebrow {
+    font-size: 13px;
+
+    margin-bottom: 18px;
+  }
+
+  .engineering-approach-title {
+    font-size: 27px;
+
+    line-height: 1.25;
+  }
+
+  .engineering-approach-description {
+    max-width: 100%;
+
+    font-size: 13px;
+
+    margin: 16px 0 32px;
+  }
+
+
+  /* =================================================
+     MOBILE APPROACH CARDS
+     ================================================= */
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    padding: 0;
+  }
+
+  .approach-card {
+    min-height: 160px;
+
+    padding: 22px 17px;
+  }
+
+
+  /*
+     On mobile the dark area crosses
+     approximately through the first card.
+  */
+
+  .engineering-approach-section::before {
+    top: 0;
+
+    height: 390px;
+
+    bottom: auto;
+  }
+
+
+  /* =================================================
+     START A PROJECT
+     ================================================= */
+
+  .start-project-section {
+    padding: 55px 20px 60px;
+
+    text-align: center;
+  }
+
+  .start-project-container {
+    max-width: 100%;
+  }
+
+  .start-project-eyebrow {
+    font-size: 13px;
+
+    margin-bottom: 15px;
+  }
+
+  .start-project-title {
+    font-size: 28px;
+
+    line-height: 1.25;
+
+    margin-bottom: 15px;
+  }
+
+  .start-project-description {
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    margin-bottom: 25px;
+  }
+
+  .start-project-button {
+    min-width: 140px;
+
+    height: 43px;
+
+    padding: 0 22px;
+  }
+
+
+  /* =================================================
+     CTA
+     ================================================= */
+
+  .cta-section {
+    padding: 50px 20px;
+  }
+
+  .cta-container {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 28px;
+  }
+
+  .cta-content {
+    width: 100%;
+  }
+
+  .cta-eyebrow {
+    font-size: 12px;
+
+    margin-bottom: 13px;
+  }
+
+  .cta-title {
+    font-size: 27px;
+
+    line-height: 1.25;
+
+    margin-bottom: 14px;
+  }
+
+  .cta-description {
+    max-width: 100%;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+  .cta-action {
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+
+  .cta-button {
+    min-width: 145px;
+
+    height: 44px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE - 400px
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+  .about-navbar {
+    padding: 18px 15px;
+  }
+
+  .about-nav-links {
+    gap: 13px 16px;
+  }
+
+
+  /* =================================================
+     HERO
+     ================================================= */
+
+  .about-hero {
+    height: 480px;
+  }
+
+  .about-hero-content {
+    left: 20px;
+
+    width: calc(100% - 40px);
+  }
+
+  .about-hero-content h1 {
+    font-size: 27px;
+  }
+
+
+  /* =================================================
+     WHO WE ARE
+     ================================================= */
+
+  .who-we-are-content {
+    padding: 28px 18px;
+  }
+
+  .who-we-are-content h2 {
+    font-size: 25px;
+  }
+
+
+  /* =================================================
+     VALUES
+     ================================================= */
+
+  .about-values-section {
+    padding: 40px 18px 55px;
+  }
+
+
+  /* =================================================
+     ENGINEERING APPROACH
+     ================================================= */
+
+  .engineering-approach-container {
+    padding: 0 18px;
+  }
+
+  .engineering-approach-title {
+    font-size: 25px;
+  }
+
+  .approach-card {
+    min-height: 155px;
+
+    padding: 20px 16px;
+  }
+
+  .engineering-approach-section::before {
+    height: 375px;
+  }
+
+
+  /* =================================================
+     START PROJECT
+     ================================================= */
+
+  .start-project-section {
+    padding: 50px 18px 55px;
+  }
+
+  .start-project-title {
+    font-size: 25px;
+  }
+
+
+  /* =================================================
+     CTA
+     ================================================= */
+
+  .cta-section {
+    padding: 45px 18px;
+  }
+
+  .cta-title {
+    font-size: 25px;
+  }
+
+  .cta-button {
+    width: 100%;
+
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.home-footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #081b2d;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FOOTER MAIN
+   ========================================================= */
+
+.footer-main {
+  position: relative;
+  width: 100%;
+  min-height: 245px;
+  padding: 20px 5.2% 28px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.15fr;
+  column-gap: 70px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-column {
+  min-width: 0;
+}
+
+.footer-column h3 {
+  margin: 0 0 14px;
+  padding: 0;
+
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.footer-column p {
+  margin: 0;
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.footer-company {
+  padding-left: 0;
+}
+
+.footer-company h3 {
+  white-space: nowrap;
+}
+
+.footer-company p {
+  max-width: 300px;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 43px;
+}
+
+.footer-socials a {
+  width: 19px;
+  height: 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #081b2d;
+
+  border-radius: 4px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+  background: #16b8e8;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+   ========================================================= */
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-links h3 {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  margin-bottom: 12px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #16b8e8;
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.footer-contact {
+  padding-left: 0;
+}
+
+.footer-email {
+  display: inline-block;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+  color: #16b8e8;
+}
+
+.footer-contact-title {
+  margin-top: 22px !important;
+  margin-bottom: 10px !important;
+}
+
+.footer-contact p {
+  max-width: 360px;
+}
+
+
+/* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+
+.footer-back-top {
+  position: absolute;
+
+  right: 4.1%;
+  top: 170px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #16b8e8;
+  color: #ffffff;
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.footer-back-top:hover {
+  transform: translateY(-3px);
+  background: #0da8d6;
+}
+
+.footer-back-top span {
+  display: block;
+
+  height: 7px;
+
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 5px;
+}
+
+.footer-back-top span + span {
+  margin-top: -3px;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  width: 100%;
+  min-height: 54px;
+
+  padding: 0 3.8%;
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+
+  box-sizing: border-box;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   FOOTER - LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  .footer-main {
+    min-height: 245px;
+    padding:
+      20px
+      5.2%
+      28px;
+
+    grid-template-columns:
+      1.35fr
+      1fr
+      1.15fr;
+
+    column-gap: 80px;
+  }
+
+  .footer-column h3 {
+    font-size: 15px;
+  }
+
+  .footer-column p,
+  .footer-links a,
+  .footer-email {
+    font-size: 12px;
+  }
+
+  .footer-back-top {
+    right: 4.1%;
+    top: 170px;
+  }
+}
+
+
+/* =========================================================
+   FOOTER - LAPTOP
+   ========================================================= */
+
+@media (min-width: 1101px) and (max-width: 1599px) {
+
+  .footer-main {
+    min-height: 245px;
+    padding:
+      20px
+      5%
+      28px;
+
+    grid-template-columns:
+      1.3fr
+      1fr
+      1.15fr;
+
+    column-gap: 50px;
+  }
+
+  .footer-back-top {
+    right: 4%;
+    top: 170px;
+  }
+}
+
+
+/* =========================================================
+   FOOTER - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .footer-main {
+    min-height: 260px;
+    padding:
+      28px
+      30px
+      30px;
+
+    grid-template-columns:
+      1.2fr
+      1fr
+      1.2fr;
+
+    column-gap: 30px;
+  }
+
+  .footer-company h3 {
+    white-space: normal;
+  }
+
+  .footer-back-top {
+    right: 25px;
+    top: 175px;
+  }
+
+}
+
+
+/* =========================================================
+   FOOTER - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .footer-main {
+    min-height: auto;
+
+    padding:
+      45px
+      22px
+      35px;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    row-gap: 35px;
+  }
+
+  .footer-company h3 {
+    white-space: normal;
+  }
+
+  .footer-company p {
+    max-width: 100%;
+  }
+
+  .footer-socials {
+    margin-top: 25px;
+  }
+
+  .footer-links {
+    margin-top: 5px;
+  }
+
+  .footer-contact {
+    margin-top: 5px;
+    padding-bottom: 40px;
+  }
+
+  .footer-contact p {
+    max-width: 100%;
+  }
+
+  .footer-back-top {
+    right: 22px;
+    top: auto;
+    bottom: 30px;
+
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer-bottom {
+    min-height: 65px;
+    padding:
+      0
+      22px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+
+
+/* =========================================================
+   FOOTER - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+  .footer-main {
+    padding:
+      40px
+      18px
+      30px;
+
+    row-gap: 30px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .footer-column p,
+  .footer-links a,
+  .footer-email {
+    font-size: 11px;
+  }
+
+  .footer-contact-title {
+    margin-top: 20px !important;
+  }
+
+  .footer-bottom {
+    min-height: 65px;
+    padding:
+      0
+      18px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+
+  .footer-back-top {
+    right: 18px;
+    bottom: 25px;
+  }
+}
+
