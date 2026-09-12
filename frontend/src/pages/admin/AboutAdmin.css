@@ -1,0 +1,159 @@
+.about-admin-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f5f6f8;
+}
+
+/* HEADER */
+
+.about-admin-header {
+  margin-bottom: 25px;
+}
+
+.about-admin-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #6b7280;
+}
+
+.about-admin-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.about-admin-header p {
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* CARD */
+
+.about-admin-card {
+  max-width: 1000px;
+  margin-bottom: 22px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.about-admin-card h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* FIELD */
+
+.about-admin-field {
+  margin-bottom: 20px;
+}
+
+.about-admin-field:last-child {
+  margin-bottom: 0;
+}
+
+.about-admin-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* STATIC CONTENT */
+
+.about-admin-static {
+  padding: 13px 15px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.about-admin-text {
+  min-height: 80px;
+}
+
+/* VALUES */
+
+.about-admin-values {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.about-admin-value {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.about-admin-value strong {
+  font-size: 15px;
+  color: #111827;
+}
+
+.about-admin-value span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+/* STATUS */
+
+.about-admin-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1000px;
+  padding: 15px 18px;
+  margin-top: 5px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.about-admin-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .about-admin-page {
+    padding: 20px;
+  }
+
+  .about-admin-header h1 {
+    font-size: 25px;
+  }
+
+  .about-admin-card {
+    padding: 18px;
+  }
+
+  .about-admin-values {
+    grid-template-columns: 1fr;
+  }
+}

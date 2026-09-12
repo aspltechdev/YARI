@@ -1,0 +1,175 @@
+.home-admin-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f5f6f8;
+}
+
+.home-admin-header {
+  margin-bottom: 25px;
+}
+
+.home-admin-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.home-admin-header p {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* MESSAGE */
+
+.home-admin-message {
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.home-admin-message.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.home-admin-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* FORM */
+
+.home-admin-form {
+  max-width: 1000px;
+}
+
+/* CARD */
+
+.home-admin-card {
+  background: #ffffff;
+  padding: 25px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.home-admin-card h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+  color: #111827;
+}
+
+/* FIELD */
+
+.home-admin-field {
+  margin-bottom: 20px;
+}
+
+.home-admin-field:last-child {
+  margin-bottom: 0;
+}
+
+.home-admin-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.home-admin-field input,
+.home-admin-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+  color: #111827;
+  transition: border-color 0.2s ease;
+}
+
+.home-admin-field input:focus,
+.home-admin-field textarea:focus {
+  border-color: #2563eb;
+}
+
+.home-admin-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* BUTTON */
+
+.home-admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  padding-bottom: 30px;
+}
+
+.home-admin-actions button {
+  border: none;
+  border-radius: 7px;
+  padding: 13px 24px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.home-admin-actions button:hover {
+  opacity: 0.9;
+}
+
+.home-admin-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* LOADING */
+
+.home-admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .home-admin-page {
+    padding: 20px;
+  }
+
+  .home-admin-header h1 {
+    font-size: 25px;
+  }
+
+  .home-admin-card {
+    padding: 18px;
+  }
+
+  .home-admin-actions {
+    justify-content: stretch;
+  }
+
+  .home-admin-actions button {
+    width: 100%;
+  }
+}

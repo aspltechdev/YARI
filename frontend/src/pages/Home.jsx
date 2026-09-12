@@ -1,5 +1,20 @@
 import "./Home.css";
 
+const heroSlides = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=90",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=90",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1800&q=90",
+  },
+];
+
 const industries = [
   {
     title: "Industrial Engineering",
@@ -80,6 +95,7 @@ const galleryImages = [
 ];
 
 export default function Home() {
+  const scrollingHeroSlides = [...heroSlides, ...heroSlides];
   const scrollingIndustries = [...industries, ...industries];
 
   return (
@@ -124,15 +140,24 @@ export default function Home() {
 
       <section className="home-hero">
 
+        {/* IMAGE - BEHIND EVERYTHING */}
         <div className="home-hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=90"
-            alt="Engineer working in industrial environment"
-          />
-        </div>
+  <div className="home-hero-track">
+    {scrollingHeroSlides.map((slide, index) => (
+      <div className="home-hero-slide" key={index}>
+        <img
+          src={slide.image}
+          alt={`YARI engineering and manufacturing ${index + 1}`}
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
+        {/* DARK OVERLAY */}
         <div className="home-hero-overlay"></div>
 
+        {/* CONTENT - ABOVE IMAGE */}
         <div className="container home-hero-content">
 
           <p className="home-eyebrow">
@@ -216,7 +241,6 @@ export default function Home() {
               </p>
             </div>
 
-
             <div className="glance-card">
               <h3>
                 Fabrication
@@ -228,7 +252,6 @@ export default function Home() {
               </p>
             </div>
 
-
             <div className="glance-card">
               <h3>
                 Project Support
@@ -239,7 +262,6 @@ export default function Home() {
                 Industrial Applications.
               </p>
             </div>
-
 
             <div className="glance-card">
               <h3>
@@ -272,7 +294,6 @@ export default function Home() {
               alt="Engineering team working together"
             />
           </div>
-
 
           <div className="why-yari-content">
 
@@ -311,66 +332,47 @@ export default function Home() {
           INDUSTRIES
           ===================================================== */}
 
-<section className="home-section industries-section">
+      <section className="industries-section" id="industries">
+  <div className="industries-container">
 
-  <div className="container">
+    {/* FIXED CONTENT */}
+    <div className="industries-content">
+      <span className="industries-label">INDUSTRIES</span>
 
-    <p className="section-eyebrow">
-      INDUSTRIES
-    </p>
+      <h2>
+        Built Around Industrial
+        <br />
+        Applications.
+      </h2>
 
-    <h2 className="section-title">
-      Built Around Industrial
-      <br />
-      Applications.
-    </h2>
+      <p>
+        Explore The Industries Page For Detailed Application-Oriented Descriptions.
+      </p>
+    </div>
 
-    <p className="section-description">
-      Explore The Industries Page For Detailed
-      Application-Oriented Descriptions.
-    </p>
+    {/* CONTINUOUS SLIDER */}
+    <div className="industries-cards-wrapper">
+      <div className="industries-cards">
+        {scrollingIndustries.map((industry, index) => (
+          <article
+            className="industry-card"
+            key={`${industry.title}-${index}`}
+          >
+            <img
+              src={industry.image}
+              alt={industry.title}
+            />
 
-  </div>
-
-
-  <div className="industries-slider">
-
-    <div className="industries-track">
-
-      {scrollingIndustries.map((industry, index) => (
-
-        <div
-          className="industry-card"
-          key={`${industry.title}-${index}`}
-        >
-
-          <img
-            src={industry.image}
-            alt={industry.title}
-          />
-
-          <div className="industry-overlay"></div>
-
-          <div className="industry-text">
-
-            <h3>
-              {industry.title}
-            </h3>
-
-            <p>
-              {industry.tag}
-            </p>
-
-          </div>
-
-        </div>
-
-      ))}
-
+            <div className="industry-card-overlay">
+              <h3>{industry.title}</h3>
+              <span>{industry.tag}</span>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
 
   </div>
-
 </section>
 
 
@@ -397,7 +399,6 @@ export default function Home() {
             Visual Product-Card Layout.
           </p>
 
-
           <div className="products-grid">
 
             {products.map((product, index) => (
@@ -415,7 +416,6 @@ export default function Home() {
                   />
 
                 </div>
-
 
                 <div className="product-content">
 
@@ -471,7 +471,6 @@ export default function Home() {
             One Visual Section.
           </p>
 
-
           <div className="gallery-grid">
 
             {galleryImages.map((item, index) => (
@@ -514,7 +513,6 @@ export default function Home() {
 
         <div className="home-cta-overlay"></div>
 
-
         <div className="home-cta-content">
 
           <p className="home-eyebrow">
@@ -542,7 +540,8 @@ export default function Home() {
 
       </section>
 
-            {/* =====================================================
+
+      {/* =====================================================
           FOOTER
           ===================================================== */}
 
@@ -662,7 +661,8 @@ export default function Home() {
         <div className="footer-bottom">
 
           <p>
-            © 2026 YARI Design &amp; Manufacturing Services. All rights reserved.
+            © 2026 YARI Design &amp; Manufacturing Services.
+            All rights reserved.
           </p>
 
         </div>

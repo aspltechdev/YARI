@@ -1,4 +1,11 @@
+import { useEffect, useState } from "react";
 import "./Industries.css";
+
+/* =====================================================
+   API
+   ===================================================== */
+
+const API_URL = "http://localhost:5000";
 
 /* =====================================================
    INDUSTRY HERO SLIDES
@@ -19,104 +26,83 @@ const industrySlides = [
   },
 ];
 
-
 /* =====================================================
-   INDUSTRIES
+   IMAGE URL HELPER
    ===================================================== */
 
-const industries = [
-  {
-    title: "Automotive & Engineering",
+const getImageUrl = (image) => {
+  if (!image) {
+    return "";
+  }
 
-    image:
-      "https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1200&q=90",
+  if (
+    image.startsWith("http://") ||
+    image.startsWith("https://") ||
+    image.startsWith("blob:")
+  ) {
+    return image;
+  }
 
-    description:
-      "Precision Engineering And Manufacturing Solutions For Automotive Components, Assemblies, And Industrial Applications.",
+  if (image.startsWith("/")) {
+    return `${API_URL}${image}`;
+  }
 
-    items: [
-      "Chassis Components",
-      "VIN Identification",
-      "Engine Parts",
-      "Part Serialisation",
-    ],
-  },
-
-  {
-    title: "Machinery & Equipment",
-
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=90",
-
-    description:
-      "Precision Engineering And Manufacturing Solutions For Aerospace And Defence Components, Assemblies, And Specialized Applications.",
-
-    items: [
-      "Custom Equipment Parts",
-      "Precision Fabrication",
-      "Machine Assemblies",
-      "Sheet-Metal Components",
-    ],
-  },
-
-  {
-    title: "Industrial Engineering",
-
-    image:
-      "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1200&q=90",
-
-    description:
-      "Optimizing Industrial Processes, Production Systems, And Manufacturing Workflows For Improved Efficiency And Performance.",
-
-    items: [
-      "Process & Production Engineering",
-      "Manufacturing Optimization",
-      "Workflow & Process Improvement",
-      "Industrial Automation Support",
-    ],
-  },
-
-  {
-    title: "Aerospace",
-
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=90",
-
-    description:
-      "Precision Engineering And Manufacturing Solutions For Aerospace Components, Structures, And Specialized Applications.",
-
-    items: [
-      "Aerospace Components",
-      "Precision Machining",
-      "Sheet-Metal Fabrication",
-      "Aerospace Assemblies",
-    ],
-  },
-
-  {
-    title: "Medical & Healthcare Equipment",
-
-    image:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=90",
-
-    description:
-      "Precision Manufacturing Solutions For Reliable Medical Components, Equipment Parts, And Specialized Healthcare Assemblies.",
-
-    items: [
-      "Medical Equipment Components",
-      "Precision Fabrication",
-      "Stainless Steel Components",
-      "Custom Equipment Assemblies",
-    ],
-  },
-];
-
+  return `${API_URL}/${image}`;
+};
 
 /* =====================================================
    INDUSTRIES COMPONENT
    ===================================================== */
 
 export default function Industries() {
+  const [industries, setIndustries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  /* =====================================================
+     LOAD INDUSTRIES FROM BACKEND
+     ===================================================== */
+
+  useEffect(() => {
+    const fetchIndustries = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await fetch(
+          `${API_URL}/api/industries`
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(
+            result.message || "Unable to load industries."
+          );
+        }
+
+        setIndustries(
+          Array.isArray(result.data)
+            ? result.data
+            : []
+        );
+      } catch (err) {
+        console.error(
+          "Error loading industries:",
+          err
+        );
+
+        setError(
+          "Unable to load industries at the moment."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchIndustries();
+  }, []);
+
   return (
     <main className="industries-page">
 
@@ -178,7 +164,9 @@ export default function Industries() {
 
               <img
                 src={slide.image}
-                alt={`YARI industrial application ${index + 1}`}
+                alt={`YARI industrial application ${
+                  index + 1
+                }`}
               />
 
             </div>
@@ -209,8 +197,9 @@ export default function Industries() {
           </h1>
 
           <p className="industries-description">
-            Each Industry Section Explains The Kind Of Support YARI Can
-            Present Around Its Documented Business Activities.
+            Each Industry Section Explains The Kind Of
+            Support YARI Can Present Around Its
+            Documented Business Activities.
           </p>
 
         </div>
@@ -230,35 +219,6 @@ export default function Industries() {
 
 
       {/* =====================================================
-          INDUSTRIES INTRO
-          ===================================================== */}
-
-      <section className="industries-intro-section">
-
-        <div className="industries-intro-container">
-
-          <p className="industries-section-eyebrow">
-            INDUSTRIAL SECTORS
-          </p>
-
-          <h2>
-            Engineering Support For Industrial Requirements
-          </h2>
-
-          <p>
-            YARI Design & Manufacturing Services provides engineering
-            design and manufacturing-oriented support for industrial
-            requirements. Our approach focuses on understanding the
-            application, developing practical engineering solutions,
-            and supporting manufacturing and project requirements.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
           INDUSTRY SERVICES
           ===================================================== */}
 
@@ -266,126 +226,185 @@ export default function Industries() {
 
         <div className="industry-services-container">
 
-          {industries.map((industry, index) => (
+          {/* LOADING */}
 
-            <article
-              className="industry-service-card"
-              key={index}
-            >
+          {loading && (
+            <div className="industries-loading">
+              Loading industries...
+            </div>
+          )}
 
-              {/* =====================================================
-                  IMAGE
-                  ===================================================== */}
 
-              <div className="industry-service-image">
+          {/* ERROR */}
 
-                <img
-                  src={industry.image}
-                  alt={industry.title}
-                />
+          {!loading && error && (
+            <div className="industries-error">
+              {error}
+            </div>
+          )}
 
+
+          {/* NO INDUSTRIES */}
+
+          {!loading &&
+            !error &&
+            industries.length === 0 && (
+              <div className="industries-empty">
+                No industries are currently available.
               </div>
+            )}
 
 
-              {/* =====================================================
-                  CONTENT
-                  ===================================================== */}
+          {/* INDUSTRIES */}
 
-              <div className="industry-service-content">
+          {!loading &&
+            !error &&
+            industries.map((industry) => (
 
-                <h3>
-                  {industry.title}
-                </h3>
-
-                <p className="industry-service-description">
-                  {industry.description}
-                </p>
-
+              <article
+                className="industry-service-card"
+                key={industry.id}
+              >
 
                 {/* =====================================================
-                    FEATURES
+                    IMAGE
                     ===================================================== */}
 
-                <div className="industry-service-features">
+                <div className="industry-service-image">
 
-                  {industry.items.map((item, itemIndex) => (
-
-                    <div
-                      className="industry-feature"
-                      key={itemIndex}
-                    >
-
-                      <span className="industry-feature-dot"></span>
-
-                      <span>
-                        {item}
-                      </span>
-
+                  {industry.image ? (
+                    <img
+                      src={getImageUrl(
+                        industry.image
+                      )}
+                      alt={industry.title}
+                    />
+                  ) : (
+                    <div className="industry-service-no-image">
+                      No Image
                     </div>
-
-                  ))}
+                  )}
 
                 </div>
 
 
                 {/* =====================================================
-                    CONTACT BUTTON
+                    CONTENT
                     ===================================================== */}
 
-                <a
-                  href="/contact"
-                  className="industry-service-button"
-                >
-                  Contact Us
-                  <span>→</span>
-                </a>
+                <div className="industry-service-content">
 
-              </div>
+                  <h3>
+                    {industry.title}
+                  </h3>
 
-            </article>
 
-          ))}
+                  <p className="industry-service-description">
+                    {industry.description}
+                  </p>
+
+
+                  {/* =====================================================
+                      FEATURES
+                      ===================================================== */}
+
+                  {Array.isArray(
+                    industry.features
+                  ) &&
+                    industry.features.length > 0 && (
+
+                      <div className="industry-service-features">
+
+                        {industry.features.map(
+                          (
+                            feature,
+                            featureIndex
+                          ) => (
+
+                            <div
+                              className="industry-feature"
+                              key={
+                                featureIndex
+                              }
+                            >
+
+                              <span className="industry-feature-dot"></span>
+
+                              <span>
+                                {feature}
+                              </span>
+
+                            </div>
+
+                          )
+                        )}
+
+                      </div>
+
+                    )}
+
+
+                  {/* =====================================================
+                      CONTACT BUTTON
+                      ===================================================== */}
+
+                  <a
+                    href="/contact"
+                    className="industry-service-button"
+                  >
+                    Contact Us
+                    <span>→</span>
+                  </a>
+
+                </div>
+
+              </article>
+
+            ))}
 
         </div>
 
-              {/* =====================================================
-          CUSTOM APPLICATIONS
-          ===================================================== */}
 
-      <section className="industries-custom-section">
-
-        <div className="industries-custom-overlay"></div>
-
-        <div className="industries-custom-content">
-
-          <p className="industries-custom-eyebrow">
+        {/* =====================================================
             CUSTOM APPLICATIONS
-          </p>
+            ===================================================== */}
 
-          <h2>
-            Have A Requirement That Does Not Fit One Category?
-          </h2>
+        <section className="industries-custom-section">
 
-          <p className="industries-custom-description">
-            Share The Application, Drawing, Component Details Or Project
-            Scope And Discuss The Suitable Engineering Service.
-          </p>
+          <div className="industries-custom-overlay"></div>
 
-          <a
-            href="/contact"
-            className="industries-custom-button"
-          >
-            Discuss Your Requirement
-          </a>
+          <div className="industries-custom-content">
 
-        </div>
+            <p className="industries-custom-eyebrow">
+              CUSTOM APPLICATIONS
+            </p>
+
+            <h2>
+              Have A Requirement That Does Not Fit
+              One Category?
+            </h2>
+
+            <p className="industries-custom-description">
+              Share The Application, Drawing, Component
+              Details Or Project Scope And Discuss The
+              Suitable Engineering Service.
+            </p>
+
+            <a
+              href="/contact"
+              className="industries-custom-button"
+            >
+              Discuss Your Requirement
+            </a>
+
+          </div>
+
+        </section>
 
       </section>
 
-      
-      </section>
 
-       {/* =====================================================
+      {/* =====================================================
           FOOTER
           ===================================================== */}
 
@@ -394,6 +413,7 @@ export default function Industries() {
         <div className="footer-main">
 
           {/* COMPANY */}
+
           <div className="footer-column footer-company">
 
             <h3>
@@ -410,15 +430,24 @@ export default function Industries() {
 
             <div className="footer-socials">
 
-              <a href="#" aria-label="Instagram">
+              <a
+                href="#"
+                aria-label="Instagram"
+              >
                 ◎
               </a>
 
-              <a href="#" aria-label="Facebook">
+              <a
+                href="#"
+                aria-label="Facebook"
+              >
                 f
               </a>
 
-              <a href="#" aria-label="Twitter">
+              <a
+                href="#"
+                aria-label="Twitter"
+              >
                 ♥
               </a>
 
@@ -428,6 +457,7 @@ export default function Industries() {
 
 
           {/* QUICK LINKS */}
+
           <div className="footer-column footer-links">
 
             <h3>
@@ -462,6 +492,7 @@ export default function Industries() {
 
 
           {/* CONTACT */}
+
           <div className="footer-column footer-contact">
 
             <h3>
@@ -489,6 +520,7 @@ export default function Industries() {
 
 
           {/* BACK TO TOP */}
+
           <a
             href="#"
             className="footer-back-top"
@@ -502,18 +534,17 @@ export default function Industries() {
 
 
         {/* COPYRIGHT */}
+
         <div className="footer-bottom">
 
           <p>
-            © 2026 YARI Design &amp; Manufacturing Services. All rights reserved.
+            © 2026 YARI Design &amp; Manufacturing
+            Services. All rights reserved.
           </p>
 
         </div>
 
       </footer>
-
-
-      
 
     </main>
   );
