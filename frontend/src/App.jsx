@@ -10,6 +10,7 @@ import Industries from "./pages/Industries";
 import Products from "./pages/Products";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import ProductDetails from "./ProductDetails";
 
 /* =========================================================
    ADMIN PAGES
@@ -51,9 +52,23 @@ function App() {
         element={<Industries />}
       />
 
+      {/* ===================================================
+          PRODUCTS
+          =================================================== */}
+
       <Route
         path="/products"
         element={<Products />}
+      />
+
+      {/* PRODUCT DETAILS
+          IMPORTANT: This must come after /products
+          and before the catch-all route.
+      */}
+
+      <Route
+        path="/products/:slug"
+        element={<ProductDetails />}
       />
 
       <Route
@@ -65,7 +80,6 @@ function App() {
         path="/contact"
         element={<Contact />}
       />
-
 
       {/* ===================================================
           ADMIN LOGIN
@@ -86,7 +100,6 @@ function App() {
         element={<AdminLogin />}
       />
 
-
       {/* ===================================================
           ADMIN DASHBOARD
           =================================================== */}
@@ -95,7 +108,6 @@ function App() {
         path="/admin/dashboard"
         element={<AdminDashboard />}
       />
-
 
       {/* ===================================================
           ADMIN HOME
@@ -106,7 +118,6 @@ function App() {
         element={<HomeAdmin />}
       />
 
-
       {/* ===================================================
           ADMIN ABOUT US
           =================================================== */}
@@ -115,7 +126,6 @@ function App() {
         path="/admin/about"
         element={<AboutAdmin />}
       />
-
 
       {/* ===================================================
           ADMIN INDUSTRIES
@@ -126,7 +136,6 @@ function App() {
         element={<IndustriesAdmin />}
       />
 
-
       {/* ===================================================
           ADMIN PRODUCTS
           =================================================== */}
@@ -135,7 +144,6 @@ function App() {
         path="/admin/products"
         element={<ProductsAdmin />}
       />
-
 
       {/* ===================================================
           ADMIN GALLERY
@@ -146,7 +154,6 @@ function App() {
         element={<GalleryAdmin />}
       />
 
-
       {/* ===================================================
           ADMIN CONTACT
           =================================================== */}
@@ -155,7 +162,6 @@ function App() {
         path="/admin/contact"
         element={<ContactAdmin />}
       />
-
 
       {/* ===================================================
           UNKNOWN URL

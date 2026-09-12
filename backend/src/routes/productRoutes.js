@@ -74,31 +74,12 @@ const upload = multer({
 
 
 /* =========================================================
-   PUBLIC ROUTES
-   ========================================================= */
-
-/* GET ALL ACTIVE PRODUCTS */
-
-router.get(
-  "/",
-  getProducts
-);
-
-
-/* GET PRODUCT BY SLUG */
-
-router.get(
-  "/:slug",
-  getProductBySlug
-);
-
-
-/* =========================================================
    ADMIN ROUTES
+   IMPORTANT:
+   These must come BEFORE /:slug
    ========================================================= */
 
-/* GET ALL PRODUCTS
-   Includes active + hidden products */
+/* GET ALL PRODUCTS FOR ADMIN */
 
 router.get(
   "/admin/all",
@@ -137,6 +118,26 @@ router.delete(
 
 
 /* =========================================================
+   PUBLIC ROUTES
+   ========================================================= */
+
+/* GET ALL ACTIVE PRODUCTS */
+
+router.get(
+  "/",
+  getProducts
+);
+
+
+/* GET SINGLE PRODUCT BY SLUG */
+
+router.get(
+  "/:slug",
+  getProductBySlug
+);
+
+
+/* =========================================================
    ERROR HANDLER
    ========================================================= */
 
@@ -149,7 +150,9 @@ router.use((error, req, res, next) => {
   if (
     error instanceof multer.MulterError
   ) {
-    if (error.code === "LIMIT_FILE_SIZE") {
+    if (
+      error.code === "LIMIT_FILE_SIZE"
+    ) {
       return res.status(400).json({
         success: false,
         message:

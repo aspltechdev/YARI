@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const heroSlides = [
@@ -42,27 +43,34 @@ const industries = [
   },
 ];
 
+/* =========================================================
+   HOME PRODUCTS
+   ========================================================= */
+
 const products = [
   {
-    title: "Control Panel Boards",
+    title: "CNC Machined Metal Parts",
     description:
-      "Industrial Control And Electrical Panel Solutions For Demanding Applications.",
+      "High-Precision Custom Metal Components Manufactured For Industrial And Engineering Applications.",
+    slug: "cnc-machined-metal-parts",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=85",
   },
   {
-    title: "Control Panel Boards",
+    title: "Fabricated Metal Components",
     description:
-      "Industrial Control And Electrical Panel Solutions For Demanding Applications.",
+      "Custom-Fabricated Metal Parts And Assemblies For Reliable Industrial Applications.",
+    slug: "fabricated-metal-components",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85",
   },
   {
-    title: "Control Panel Boards",
+    title: "Sheet Metal Components",
     description:
-      "Industrial Control And Electrical Panel Solutions For Demanding Applications.",
+      "Precision Sheet-Metal Components Manufactured For Industrial Applications.",
+    slug: "sheet-metal-components",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=85",
   },
 ];
 
@@ -106,31 +114,35 @@ export default function Home() {
           ===================================================== */}
 
       <nav className="top-navbar">
+
         <div className="nav-links">
-          <a href="/" className="active">
+
+          <Link to="/" className="active">
             Home
-          </a>
+          </Link>
 
-          <a href="/about">
+          <Link to="/about">
             About Us
-          </a>
+          </Link>
 
-          <a href="/industries">
+          <Link to="/industries">
             Industries
-          </a>
+          </Link>
 
-          <a href="/products">
+          <Link to="/products">
             Products
-          </a>
+          </Link>
 
-          <a href="/gallery">
+          <Link to="/gallery">
             Gallery
-          </a>
+          </Link>
 
-          <a href="/contact">
+          <Link to="/contact">
             Contact
-          </a>
+          </Link>
+
         </div>
+
       </nav>
 
 
@@ -140,24 +152,32 @@ export default function Home() {
 
       <section className="home-hero">
 
-        {/* IMAGE - BEHIND EVERYTHING */}
         <div className="home-hero-image">
-  <div className="home-hero-track">
-    {scrollingHeroSlides.map((slide, index) => (
-      <div className="home-hero-slide" key={index}>
-        <img
-          src={slide.image}
-          alt={`YARI engineering and manufacturing ${index + 1}`}
-        />
-      </div>
-    ))}
-  </div>
-</div>
 
-        {/* DARK OVERLAY */}
+          <div className="home-hero-track">
+
+            {scrollingHeroSlides.map((slide, index) => (
+
+              <div
+                className="home-hero-slide"
+                key={index}
+              >
+
+                <img
+                  src={slide.image}
+                  alt={`YARI engineering and manufacturing ${index + 1}`}
+                />
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
         <div className="home-hero-overlay"></div>
 
-        {/* CONTENT - ABOVE IMAGE */}
         <div className="container home-hero-content">
 
           <p className="home-eyebrow">
@@ -179,19 +199,19 @@ export default function Home() {
 
           <div className="home-hero-buttons">
 
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="home-btn home-btn-primary"
             >
               Explore Now
-            </a>
+            </Link>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="home-btn home-btn-dark"
             >
               Get A Quote
-            </a>
+            </Link>
 
           </div>
 
@@ -202,6 +222,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
 
@@ -277,6 +298,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
 
@@ -289,10 +311,12 @@ export default function Home() {
         <div className="why-yari-container container">
 
           <div className="why-yari-image">
+
             <img
               src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=90"
               alt="Engineering team working together"
             />
+
           </div>
 
           <div className="why-yari-content">
@@ -315,16 +339,17 @@ export default function Home() {
               fabricated-metal related activities.
             </p>
 
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="home-btn home-btn-primary"
             >
               About YARI
-            </a>
+            </Link>
 
           </div>
 
         </div>
+
       </section>
 
 
@@ -332,48 +357,71 @@ export default function Home() {
           INDUSTRIES
           ===================================================== */}
 
-      <section className="industries-section" id="industries">
-  <div className="industries-container">
+      <section
+        className="industries-section"
+        id="industries"
+      >
 
-    {/* FIXED CONTENT */}
-    <div className="industries-content">
-      <span className="industries-label">INDUSTRIES</span>
+        <div className="industries-container">
 
-      <h2>
-        Built Around Industrial
-        <br />
-        Applications.
-      </h2>
+          <div className="industries-content">
 
-      <p>
-        Explore The Industries Page For Detailed Application-Oriented Descriptions.
-      </p>
-    </div>
+            <span className="industries-label">
+              INDUSTRIES
+            </span>
 
-    {/* CONTINUOUS SLIDER */}
-    <div className="industries-cards-wrapper">
-      <div className="industries-cards">
-        {scrollingIndustries.map((industry, index) => (
-          <article
-            className="industry-card"
-            key={`${industry.title}-${index}`}
-          >
-            <img
-              src={industry.image}
-              alt={industry.title}
-            />
+            <h2>
+              Built Around Industrial
+              <br />
+              Applications.
+            </h2>
 
-            <div className="industry-card-overlay">
-              <h3>{industry.title}</h3>
-              <span>{industry.tag}</span>
+            <p>
+              Explore The Industries Page For Detailed Application-Oriented Descriptions.
+            </p>
+
+          </div>
+
+
+          <div className="industries-cards-wrapper">
+
+            <div className="industries-cards">
+
+              {scrollingIndustries.map((industry, index) => (
+
+                <article
+                  className="industry-card"
+                  key={`${industry.title}-${index}`}
+                >
+
+                  <img
+                    src={industry.image}
+                    alt={industry.title}
+                  />
+
+                  <div className="industry-card-overlay">
+
+                    <h3>
+                      {industry.title}
+                    </h3>
+
+                    <span>
+                      {industry.tag}
+                    </span>
+
+                  </div>
+
+                </article>
+
+              ))}
+
             </div>
-          </article>
-        ))}
-      </div>
-    </div>
 
-  </div>
-</section>
+          </div>
+
+        </div>
+
+      </section>
 
 
       {/* =====================================================
@@ -401,11 +449,11 @@ export default function Home() {
 
           <div className="products-grid">
 
-            {products.map((product, index) => (
+            {products.map((product) => (
 
               <div
                 className="product-card"
-                key={index}
+                key={product.slug}
               >
 
                 <div className="product-image">
@@ -427,13 +475,22 @@ export default function Home() {
                     {product.description}
                   </p>
 
-                  <a
-                    href="/products"
+                  {/* =================================================
+                      FIXED PRODUCT LINK
+                      ================================================= */}
+
+                  <Link
+                    to={`/products/${product.slug}`}
                     className="product-button"
                   >
+
                     View Product
-                    <span>↗</span>
-                  </a>
+
+                    <span>
+                      ↗
+                    </span>
+
+                  </Link>
 
                 </div>
 
@@ -529,12 +586,12 @@ export default function Home() {
             Precision, Durability, And Long-Term Performance.
           </p>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="home-btn home-btn-primary"
           >
             Request A Quote
-          </a>
+          </Link>
 
         </div>
 
@@ -550,6 +607,7 @@ export default function Home() {
         <div className="footer-main">
 
           {/* COMPANY */}
+
           <div className="footer-column footer-company">
 
             <h3>
@@ -584,40 +642,42 @@ export default function Home() {
 
 
           {/* QUICK LINKS */}
+
           <div className="footer-column footer-links">
 
             <h3>
               QUICK LINKS
             </h3>
 
-            <a href="/">
+            <Link to="/">
               Home
-            </a>
+            </Link>
 
-            <a href="/about">
+            <Link to="/about">
               About Us
-            </a>
+            </Link>
 
-            <a href="/industries">
+            <Link to="/industries">
               Industries
-            </a>
+            </Link>
 
-            <a href="/products">
+            <Link to="/products">
               Products
-            </a>
+            </Link>
 
-            <a href="/gallery">
+            <Link to="/gallery">
               Gallery
-            </a>
+            </Link>
 
-            <a href="/contact">
+            <Link to="/contact">
               Contact
-            </a>
+            </Link>
 
           </div>
 
 
           {/* CONTACT */}
+
           <div className="footer-column footer-contact">
 
             <h3>
@@ -645,19 +705,28 @@ export default function Home() {
 
 
           {/* BACK TO TOP */}
+
           <a
             href="#"
             className="footer-back-top"
             aria-label="Back to top"
           >
-            <span>⌃</span>
-            <span>⌃</span>
+
+            <span>
+              ⌃
+            </span>
+
+            <span>
+              ⌃
+            </span>
+
           </a>
 
         </div>
 
 
         {/* COPYRIGHT */}
+
         <div className="footer-bottom">
 
           <p>
