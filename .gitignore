@@ -4,4 +4,5 @@ dist/
 build/
 .env
 .env.local
+backend/.env
 "@ | Set-Content .gitignore

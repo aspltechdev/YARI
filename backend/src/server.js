@@ -16,17 +16,17 @@ const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
-app.use(
-  "/uploads",
-  express.static(path.join(__dirname, "../uploads"))
-);
-
-app.use(
-  "/uploads",
-  express.static(path.join(__dirname, "../uploads"))
-);
-
 const PORT = process.env.PORT || 5000;
+
+
+/* =========================================================
+   STATIC UPLOADS
+   ========================================================= */
+
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "../uploads"))
+);
 
 
 /* =========================================================
@@ -35,7 +35,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
   })
 );
 
@@ -82,87 +82,31 @@ app.get("/api/test-db", async (req, res) => {
 
 
 /* =========================================================
-   INDUSTRIES API
+   API ROUTES
    ========================================================= */
 
 app.use("/api/industries", industryRoutes);
-
-
-/* =========================================================
-   PRODUCTS API
-   ========================================================= */
-
 app.use("/api/products", productRoutes);
-
-/* =========================================================
-   GALLERY API
-   ========================================================= */
-
 app.use("/api/gallery", galleryRoutes);
-
-/* =========================================================
-   HOME CONTENT API
-   ========================================================= */
-
 app.use("/api/home", homeRoutes);
-
-/* =========================================================
-   ABOUT CONTENT API
-   ========================================================= */
-
 app.use("/api/about", aboutRoutes);
-
-/* =========================================================
-   INDUSTRIES API
-   ========================================================= */
-
-app.use("/api/industries", industryRoutes);
-
-
-/* =========================================================
-   PRODUCTS API
-   ========================================================= */
-
-app.use("/api/products", productRoutes);
-
-
-/* =========================================================
-   GALLERY API
-   ========================================================= */
-
-app.use("/api/gallery", galleryRoutes);
-
-
-/* =========================================================
-   HOME CONTENT API
-   ========================================================= */
-
-app.use("/api/home", homeRoutes);
-
-
-/* =========================================================
-   ABOUT CONTENT API
-   ========================================================= */
-
-app.use("/api/about", aboutRoutes);
-
-
-/* =========================================================
-   CONTACT API
-   ========================================================= */
-
 app.use("/api/contact", contactRoutes);
-
-/* =========================================================
-   ADMIN API
-   ========================================================= */
-
 app.use("/api/admin", adminRoutes);
 
+
 /* =========================================================
-   START SERVER
+   EXPORT APP FOR NETLIFY
    ========================================================= */
 
-app.listen(PORT, () => {
-  console.log(`YARI backend running on http://localhost:${PORT}`);
-});
+module.exports = app;
+
+
+/* =========================================================
+   LOCAL SERVER
+   ========================================================= */
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`YARI backend running on http://localhost:${PORT}`);
+  });
+}
