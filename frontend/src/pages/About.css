@@ -431,6 +431,7 @@
   line-height: 1.35;
 
   font-weight: 700;
+  text-align: left;
 }
 
 .who-we-are-content p {
@@ -558,7 +559,7 @@
 .values-grid {
   width: 100%;
 
-  max-width: 837px;
+  max-width: 1100px;
 
   margin: 0 auto;
 
@@ -604,7 +605,7 @@
 
   min-width: 44px;
 
-  height: 100%;
+  height: 50%;
 
   display: flex;
 
@@ -2365,4 +2366,3 @@
     bottom: 25px;
   }
 }
-

@@ -48,6 +48,7 @@ a {
    ========================================================= */
 
 .home-page {
+  --home-content-gutter: 3.5%;
   width: 100%;
   min-width: 100%;
   margin: 0;
@@ -224,7 +225,7 @@ a {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0 4.5%;
+  padding: 0 var(--home-content-gutter);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -431,7 +432,7 @@ a {
 
 .glance-section {
   width: 100%;
-  padding: 70px 3.5% 75px;
+  padding: 70px var(--home-content-gutter) 75px;
   background: #ffffff;
   text-align: left;
   position: relative;
@@ -665,7 +666,7 @@ a {
 .home-page .industries-container {
   width: 100%;
   margin: 0;
-  padding: 0 5.5%;
+  padding: 0 var(--home-content-gutter);
 }
 
 
@@ -676,6 +677,7 @@ a {
 .home-page .industries-content {
   width: 100%;
   margin: 0;
+  margin-left: -40px;
   padding: 0;
   position: relative;
   z-index: 2;
@@ -922,7 +924,7 @@ a {
 
 .products-section > .container {
   width: 100%;
-  padding: 0 5.5%;
+  padding: 0 var(--home-content-gutter);
 }
 
 .products-grid {
@@ -1061,7 +1063,7 @@ a {
 
 .gallery-section > .container {
   width: 100%;
-  padding: 0 5.5%;
+  padding: 0 var(--home-content-gutter);
 }
 
 .gallery-grid {
@@ -2860,5 +2862,26 @@ a {
   .footer-back-top {
     right: 18px;
     bottom: 25px;
+  }
+}
+
+
+/* =========================================================
+   HOME CONTENT ALIGNMENT
+   Keep every main Home section on the At a Glance left edge.
+   ========================================================= */
+
+@media (min-width: 1101px) {
+  .home-page .products-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .home-page .home-hero-content,
+  .home-page .industries-container,
+  .home-page .products-section > .container,
+  .home-page .gallery-section > .container {
+    padding-left: var(--home-content-gutter);
+    padding-right: var(--home-content-gutter);
   }
 }

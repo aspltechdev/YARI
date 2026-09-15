@@ -492,7 +492,7 @@
 
   font-weight: 700;
 
-  text-align: center;
+  text-align: left;
 }
 
 
@@ -512,7 +512,7 @@
   font-size: 15px;
   line-height: 1.4;
 
-  text-align: center;
+  text-align: left;
 }
 
 
@@ -693,7 +693,7 @@
 
   width: 100%;
 
-  max-width: 1200px;
+  max-width: 1300px;
 
   margin: 0 auto;
 
@@ -721,6 +721,7 @@
   font-weight: 700;
 
   text-transform: uppercase;
+  text-align: center;
 }
 
 
@@ -738,6 +739,7 @@
   line-height: 1.25;
 
   font-weight: 700;
+  text-align: center;
 }
 
 
@@ -755,6 +757,7 @@
   font-size: 13px;
 
   line-height: 1.5;
+  text-align: center;
 }
 
 
