@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./HomeAdmin.css";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://yari-backend.vercel.app";
 
 function HomeAdmin() {
   const [homeData, setHomeData] = useState({

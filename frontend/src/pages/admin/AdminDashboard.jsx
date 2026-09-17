@@ -56,15 +56,15 @@ function AdminDashboard() {
 
       const [industriesResponse, productsResponse, galleryResponse] =
         await Promise.all([
-          fetch("http://localhost:5000/api/industries", {
+          fetch("https://yari-backend.vercel.app/api/industries", {
             headers,
           }),
 
-          fetch("http://localhost:5000/api/products", {
+          fetch("https://yari-backend.vercel.app/api/products", {
             headers,
           }),
 
-          fetch("http://localhost:5000/api/gallery", {
+          fetch("https://yari-backend.vercel.app/api/gallery", {
             headers,
           }),
         ]);

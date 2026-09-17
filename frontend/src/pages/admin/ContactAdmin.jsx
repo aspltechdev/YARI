@@ -20,7 +20,7 @@ function ContactAdmin() {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/contact/messages"
+        "https://yari-backend.vercel.app/api/contact/messages"
       );
 
       const data = await response.json();

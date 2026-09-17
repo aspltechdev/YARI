@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./GalleryAdmin.css";
 
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://yari-backend.vercel.app";
 
 
 function GalleryAdmin() {

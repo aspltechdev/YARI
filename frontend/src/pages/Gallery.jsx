@@ -9,7 +9,7 @@ import Footer from "../components/Footer.jsx";
    API
    ===================================================== */
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://yari-backend.vercel.app";
 
 
 /* =====================================================

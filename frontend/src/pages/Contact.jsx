@@ -53,7 +53,7 @@ const Contact = () => {
       setSubmitting(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/contact/message",
+        "https://yari-backend.vercel.app/api/contact/message",
         {
           method: "POST",
           headers: {

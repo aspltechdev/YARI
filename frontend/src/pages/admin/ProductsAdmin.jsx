@@ -8,7 +8,7 @@ import "./ProductsAdmin.css";
    API
    ========================================================= */
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://yari-backend.vercel.app";
 
 
 /* =========================================================
