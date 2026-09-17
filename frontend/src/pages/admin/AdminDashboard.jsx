@@ -113,15 +113,6 @@ function AdminDashboard() {
      NAVIGATION
      ========================================================= */
 const openSection = (section) => {
-  if (section === "Home") {
-    navigate("/admin/home");
-    return;
-  }
-
-  if (section === "About Us") {
-    navigate("/admin/about");
-    return;
-  }
 
   if (section === "Industries") {
     navigate("/admin/industries");
@@ -143,10 +134,6 @@ const openSection = (section) => {
     return;
   }
 
-  if (section === "Messages") {
-    navigate("/admin/messages");
-    return;
-  }
 
   alert(`${section} management will be connected next.`);
 };
@@ -188,27 +175,6 @@ const openSection = (section) => {
             <span>Dashboard</span>
           </button>
 
-
-          <button
-            type="button"
-            className="admin-nav-item"
-            onClick={() => openSection("Home")}
-          >
-            <span className="admin-nav-icon">H</span>
-            <span>Home</span>
-          </button>
-
-
-          <button
-            type="button"
-            className="admin-nav-item"
-            onClick={() => openSection("About Us")}
-          >
-            <span className="admin-nav-icon">A</span>
-            <span>About Us</span>
-          </button>
-
-
           <button
             type="button"
             className="admin-nav-item"
@@ -248,15 +214,6 @@ const openSection = (section) => {
             <span>Contact</span>
           </button>
 
-
-          <button
-            type="button"
-            className="admin-nav-item"
-            onClick={() => openSection("Messages")}
-          >
-            <span className="admin-nav-icon">M</span>
-            <span>Messages</span>
-          </button>
 
         </nav>
 
@@ -466,264 +423,6 @@ const openSection = (section) => {
             </div>
 
           </section>
-
-
-          {/* =================================================
-              MANAGEMENT
-              ================================================= */}
-
-          <section className="admin-management-section">
-
-            <div className="admin-section-heading">
-
-              <div>
-
-                <span className="admin-section-label">
-                  CONTENT MANAGEMENT
-                </span>
-
-                <h2>
-                  Manage Website
-                </h2>
-
-              </div>
-
-              <p>
-                Select a section to manage its content.
-              </p>
-
-            </div>
-
-
-            <div className="admin-management-grid">
-
-              {/* HOME */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("Home")}
-              >
-
-                <div className="admin-management-icon">
-                  H
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    Home
-                  </h3>
-
-                  <p>
-                    Manage homepage sections, headings,
-                    images and content.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              {/* ABOUT */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("About Us")}
-              >
-
-                <div className="admin-management-icon">
-                  A
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    About Us
-                  </h3>
-
-                  <p>
-                    Manage company information and
-                    about-page content.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              {/* INDUSTRIES */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("Industries")}
-              >
-
-                <div className="admin-management-icon">
-                  I
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    Industries
-                  </h3>
-
-                  <p>
-                    Add, edit and manage YARI industry
-                    categories.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              {/* PRODUCTS */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("Products")}
-              >
-
-                <div className="admin-management-icon">
-                  P
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    Products
-                  </h3>
-
-                  <p>
-                    Manage products, descriptions,
-                    features and images.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              {/* GALLERY */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("Gallery")}
-              >
-
-                <div className="admin-management-icon">
-                  G
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    Gallery
-                  </h3>
-
-                  <p>
-                    Upload and manage YARI project
-                    gallery images.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              {/* CONTACT */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("Contact")}
-              >
-
-                <div className="admin-management-icon">
-                  C
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    Contact
-                  </h3>
-
-                  <p>
-                    Manage contact details, address,
-                    phone and email.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              {/* MESSAGES */}
-
-              <button
-                type="button"
-                className="admin-management-card"
-                onClick={() => openSection("Messages")}
-              >
-
-                <div className="admin-management-icon">
-                  M
-                </div>
-
-                <div className="admin-management-content">
-
-                  <h3>
-                    Messages
-                  </h3>
-
-                  <p>
-                    View and manage messages submitted
-                    through the website.
-                  </p>
-
-                </div>
-
-                <span className="admin-management-arrow">
-                  →
-                </span>
-
-              </button>
-
-            </div>
-
-          </section>
-
 
           {/* =================================================
               QUICK INFORMATION
