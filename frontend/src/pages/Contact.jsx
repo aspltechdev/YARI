@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import logo from "../assets/logo.png";
 import Footer from "../components/Footer.jsx";
+import whyyariImage from "../assets/whyyari.png";
+import fabricationImage from "../assets/fabricationnmetal.png";
+import leakageImage from "../assets/leaktesting.png";
 
 const Contact = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,17 +19,16 @@ const Contact = () => {
     message: "",
   });
 
-  const [submitting, setSubmitting] = useState(false);
 
   const heroSlides = [
     {
-      image: "/images/contact-hero-1.jpg",
+      image: whyyariImage,
     },
     {
-      image: "/images/contact-hero-2.jpg",
+      image: fabricationImage,
     },
     {
-      image: "/images/contact-hero-3.jpg",
+      image: leakageImage,
     },
   ];
 
@@ -43,72 +46,31 @@ const Contact = () => {
   };
 
   /* =========================================================
-     SUBMIT CONTACT FORM
+     OPEN EMAIL APPLICATION WITH ENQUIRY DETAILS
      ========================================================= */
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      setSubmitting(true);
+    const subject = `${formData.service}${
+      formData.project ? ` - ${formData.project}` : ""
+    }`;
 
-      const response = await fetch(
-        "https://yari-backend.vercel.app/api/contact/message",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
+    const body = `Name: ${formData.name}
+Company: ${formData.company}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Project / Requirement: ${formData.project}
 
-            // Store project/service information in subject
-            subject: `${formData.service}${
-              formData.project
-                ? ` - ${formData.project}`
-                : ""
-            }`,
+Message:
+${formData.message}`;
 
-            message: formData.message,
-          }),
-        }
-      );
+    const mailtoLink =
+      `mailto:Yari.Innovative@Gmail.Com?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
 
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(
-          data.message || "Failed to submit enquiry"
-        );
-      }
-
-      alert("Thank you. Your enquiry has been submitted.");
-
-      /* -----------------------------------------------------
-         CLEAR FORM AFTER SUCCESS
-      ----------------------------------------------------- */
-
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        service: "",
-        project: "",
-        message: "",
-      });
-
-    } catch (error) {
-      console.error("Contact form error:", error);
-
-      alert(
-        "Unable to submit your enquiry. Please try again."
-      );
-    } finally {
-      setSubmitting(false);
-    }
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -481,34 +443,17 @@ const Contact = () => {
               </div>
 
 
-              {/* FILE UPLOAD */}
-
-              <div className="contact-file-upload">
-
-                <input
-                  type="file"
-                  id="project-file"
-                  name="file"
-                />
-
-              </div>
-
-
               {/* SUBMIT */}
 
               <button
                 type="submit"
                 className="contact-submit-button"
-                disabled={submitting}
               >
-                {submitting
-                  ? "Submitting..."
-                  : "Submit Enquiry"}
+                Send Enquiry
               </button>
 
-
               <p className="contact-form-note">
-                Your enquiry will be sent to the YARI team.
+                Your email application will open with your enquiry details.
               </p>
 
             </form>

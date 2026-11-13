@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
 import "./Industries.css";
 import Footer from "../components/Footer.jsx";
-
-/* =====================================================
-   API
-   ===================================================== */
-
-const API_URL = "https://yari-backend.vercel.app";
-
+import washingImage from "../assets/wahsingmachine.png";
+import fabricationImage from "../assets/fabricationnmetal.png";
+import visionImage from "../assets/visionpokyok.png";
+import logo from "../assets/logo.png";
 /* =====================================================
    INDUSTRY HERO SLIDES
    ===================================================== */
@@ -27,83 +23,42 @@ const industrySlides = [
   },
 ];
 
-/* =====================================================
-   IMAGE URL HELPER
-   ===================================================== */
-
-const getImageUrl = (image) => {
-  if (!image) {
-    return "";
-  }
-
-  if (
-    image.startsWith("http://") ||
-    image.startsWith("https://") ||
-    image.startsWith("blob:")
-  ) {
-    return image;
-  }
-
-  if (image.startsWith("/")) {
-    return `${API_URL}${image}`;
-  }
-
-  return `${API_URL}/${image}`;
-};
+const industries = [
+  {
+    id: 1,
+    title: "Industrial Engineering",
+    image: visionImage,
+    description: "Engineering design and consultancy support for industrial and manufacturing applications.",
+    features: ["Engineering design support", "Industrial project requirements", "Technical planning"],
+  },
+  {
+    id: 2,
+    title: "Manufacturing",
+    image: washingImage,
+    description: "Manufacturing-related services supporting industrial components and production requirements.",
+    features: ["Manufacturing support", "Component processing", "Production requirements"],
+  },
+  {
+    id: 3,
+    title: "Fabrication & Metal",
+    image: fabricationImage,
+    description: "Fabrication-related work and metal treatment services for industrial applications.",
+    features: ["Fabricated metal products", "Metal treatment-related work", "Custom fabrication support"],
+  },
+  {
+    id: 4,
+    title: "Automotive",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=90",
+    description: "Engineering and manufacturing support for automotive components and related applications.",
+    features: ["Component-related applications", "Engineering support", "Manufacturing requirements"],
+  },
+];
 
 /* =====================================================
    INDUSTRIES COMPONENT
    ===================================================== */
 
 export default function Industries() {
-  const [industries, setIndustries] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  /* =====================================================
-     LOAD INDUSTRIES FROM BACKEND
-     ===================================================== */
-
-  useEffect(() => {
-    const fetchIndustries = async () => {
-      try {
-        setLoading(true);
-        setError("");
-
-        const response = await fetch(
-          `${API_URL}/api/industries`
-        );
-
-        const result = await response.json();
-
-        if (!response.ok || !result.success) {
-          throw new Error(
-            result.message || "Unable to load industries."
-          );
-        }
-
-        setIndustries(
-          Array.isArray(result.data)
-            ? result.data
-            : []
-        );
-      } catch (err) {
-        console.error(
-          "Error loading industries:",
-          err
-        );
-
-        setError(
-          "Unable to load industries at the moment."
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchIndustries();
-  }, []);
-
   return (
     <main className="industries-page">
 
@@ -112,7 +67,9 @@ export default function Industries() {
           ===================================================== */}
 
       <nav className="industries-navbar">
-
+            <a to="/" className="site-logo">
+      <img src={logo} alt="YARI Logo" />
+    </a>
         <div className="industries-nav-links">
 
           <a href="/">
@@ -227,142 +184,31 @@ export default function Industries() {
 
         <div className="industry-services-container">
 
-          {/* LOADING */}
-
-          {loading && (
-            <div className="industries-loading">
-              Loading industries...
-            </div>
-          )}
-
-
-          {/* ERROR */}
-
-          {!loading && error && (
-            <div className="industries-error">
-              {error}
-            </div>
-          )}
-
-
-          {/* NO INDUSTRIES */}
-
-          {!loading &&
-            !error &&
-            industries.length === 0 && (
-              <div className="industries-empty">
-                No industries are currently available.
+          {industries.map((industry) => (
+            <article className="industry-service-card" key={industry.id}>
+              <div className="industry-service-image">
+                <img src={industry.image} alt={industry.title} loading="lazy" />
               </div>
-            )}
 
+              <div className="industry-service-content">
+                <h3>{industry.title}</h3>
+                <p className="industry-service-description">{industry.description}</p>
 
-          {/* INDUSTRIES */}
-
-          {!loading &&
-            !error &&
-            industries.map((industry) => (
-
-              <article
-                className="industry-service-card"
-                key={industry.id}
-              >
-
-                {/* =====================================================
-                    IMAGE
-                    ===================================================== */}
-
-                <div className="industry-service-image">
-
-                  {industry.image ? (
-                    <img
-                      src={getImageUrl(
-                        industry.image
-                      )}
-                      alt={industry.title}
-                    />
-                  ) : (
-                    <div className="industry-service-no-image">
-                      No Image
+                <div className="industry-service-features">
+                  {industry.features.map((feature, featureIndex) => (
+                    <div className="industry-feature" key={featureIndex}>
+                      <span className="industry-feature-dot"></span>
+                      <span>{feature}</span>
                     </div>
-                  )}
-
+                  ))}
                 </div>
 
-
-                {/* =====================================================
-                    CONTENT
-                    ===================================================== */}
-
-                <div className="industry-service-content">
-
-                  <h3>
-                    {industry.title}
-                  </h3>
-
-
-                  <p className="industry-service-description">
-                    {industry.description}
-                  </p>
-
-
-                  {/* =====================================================
-                      FEATURES
-                      ===================================================== */}
-
-                  {Array.isArray(
-                    industry.features
-                  ) &&
-                    industry.features.length > 0 && (
-
-                      <div className="industry-service-features">
-
-                        {industry.features.map(
-                          (
-                            feature,
-                            featureIndex
-                          ) => (
-
-                            <div
-                              className="industry-feature"
-                              key={
-                                featureIndex
-                              }
-                            >
-
-                              <span className="industry-feature-dot"></span>
-
-                              <span>
-                                {feature}
-                              </span>
-
-                            </div>
-
-                          )
-                        )}
-
-                      </div>
-
-                    )}
-
-
-                  {/* =====================================================
-                      CONTACT BUTTON
-                      ===================================================== */}
-
-                  <a
-                    href="/contact"
-                    className="industry-service-button"
-                  >
-                    Contact Us
-                    <span>→</span>
-                  </a>
-
-                </div>
-
-              </article>
-
-            ))}
-
+                <a href="/contact" className="industry-service-button">
+                  Contact Us <span>→</span>
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
 
 

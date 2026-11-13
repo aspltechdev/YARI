@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaFacebookF,
-  FaTwitter,
+  FaLinkedinIn,
+   FaWhatsapp,
   FaAngleDoubleUp,
 } from "react-icons/fa";
 
@@ -53,13 +54,15 @@ export default function Footer() {
               <FaFacebookF size={16} />
             </a>
 
-            <a
-              href="#"
-              aria-label="Twitter"
-              onClick={(event) => event.preventDefault()}
-            >
-              <FaTwitter size={16} />
-            </a>
+          
+             <a
+  href="https://www.linkedin.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="LinkedIn"
+>
+  <FaLinkedinIn size={16} />
+</a>
           </div>
         </div>
 
@@ -101,7 +104,15 @@ export default function Footer() {
           </p>
         </div>
 
-
+<a
+  href="https://wa.me/917871000270"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="site-footer-whatsapp"
+  aria-label="Chat with us on WhatsApp"
+>
+  <FaWhatsapp size={25} />
+</a>
         {/* BACK TO TOP */}
 
         <button

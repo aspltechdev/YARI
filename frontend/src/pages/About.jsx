@@ -1,6 +1,8 @@
 import "./About.css";
 import Footer from "../components/Footer.jsx";
-
+import washingImage from "../assets/wahsingmachine.png";
+import hydraulicImage from "../assets/hydraulictrimming.png";
+import logo from "../assets/logo.png";
 const heroSlides = [
   {
     image:
@@ -284,7 +286,7 @@ export default function About() {
               key={index}
             >
               <img
-                src={slide.image}
+                src={washingImage}
                 alt={`YARI engineering slide ${index + 1}`}
               />
             </div>
@@ -340,7 +342,7 @@ export default function About() {
           <div className="who-we-are-image">
 
             <img
-              src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1200&q=90"
+              src={hydraulicImage}
               alt="YARI engineering and manufacturing"
             />
 

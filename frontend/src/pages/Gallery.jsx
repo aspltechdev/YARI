@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
-
 import "./Gallery.css";
-
+import electrochemicalImage from "../assets/electromechanicaldeburring.png";
+import hydraulicImage from "../assets/hydraulictrimming.png";
+import laserCuttingImage from "../assets/lasermarking.png";
+import pokyokImage from "../assets/visionpokyok.png";
+import washingImage from "../assets/wahsingmachine.png";
 import Footer from "../components/Footer.jsx";
-
-
-/* =====================================================
-   API
-   ===================================================== */
-
-const API_URL = "https://yari-backend.vercel.app";
+import logo from "../assets/logo.png";
 
 
 /* =====================================================
@@ -36,123 +32,15 @@ const gallerySlides = [
    GALLERY PAGE
    ===================================================== */
 
+const galleryImages = [
+  { id: 1, title: "Industrial Manufacturing", description: "Industrial manufacturing and engineering applications.", image:washingImage },
+  { id: 2, title: "Engineering Design", description: "Engineering and technical design applications.", image: pokyokImage },
+  { id: 3, title: "Metal Fabrication", description: "Fabrication and metalworking applications.", image: laserCuttingImage },
+  { id: 4, title: "Industrial Equipment", description: "Industrial machinery and equipment.", image: hydraulicImage },
+  { id: 5, title: "Manufacturing Processes", description: "Manufacturing and production environments.", image: electrochemicalImage },
+];
+
 export default function Gallery() {
-
-  const [galleryImages, setGalleryImages] =
-    useState([]);
-
-  const [galleryLoading, setGalleryLoading] =
-    useState(true);
-
-
-  /* =====================================================
-     FETCH GALLERY FROM DATABASE
-     ===================================================== */
-
-  useEffect(() => {
-
-    const fetchGallery = async () => {
-
-      try {
-
-        const response = await fetch(
-          `${API_URL}/api/gallery`
-        );
-
-
-        const result =
-          await response.json();
-          console.log("GALLERY API RESULT:", result);
-
-          console.log(
-  "GALLERY ITEMS:",
-  result.data.map((item) => ({
-    id: item.id,
-    title: item.title,
-    image: item.image,
-  }))
-);
-
-
-        if (
-          !response.ok ||
-          !result.success
-        ) {
-
-          throw new Error(
-            result.message ||
-            "Failed to load gallery."
-          );
-
-        }
-
-
-        setGalleryImages(
-          Array.isArray(result.data)
-            ? result.data
-            : []
-        );
-
-      } catch (error) {
-
-        console.error(
-          "Gallery loading error:",
-          error
-        );
-
-        setGalleryImages([]);
-
-      } finally {
-
-        setGalleryLoading(false);
-
-      }
-
-    };
-
-
-    fetchGallery();
-
-  }, []);
-
-
-  /* =====================================================
-     IMAGE URL
-     ===================================================== */
-
-  const getImageUrl = (image) => {
-
-    if (!image) {
-      return "";
-    }
-
-
-    /* External image URL */
-
-    if (
-      image.startsWith("http://") ||
-      image.startsWith("https://")
-    ) {
-
-      return image;
-
-    }
-
-
-    /* Local backend image */
-
-    if (image.startsWith("/")) {
-
-      return `${API_URL}${image}`;
-
-    }
-
-
-    return `${API_URL}/${image}`;
-
-  };
-
-
   return (
 
     <main className="gallery-page">
@@ -163,7 +51,9 @@ export default function Gallery() {
           ===================================================== */}
 
       <nav className="gallery-navbar">
-
+ <a to="/" className="site-logo">
+      <img src={logo} alt="YARI Logo" />
+    </a>
         <div className="gallery-nav-links">
 
           <a href="/">
@@ -314,116 +204,26 @@ export default function Gallery() {
 
 
       {/* =====================================================
-          DATABASE GALLERY IMAGE SECTION
+          STATIC GALLERY IMAGE SECTION
           ===================================================== */}
 
       <section className="gallery-images-section">
-
         <div className="gallery-images-container">
-
-
-          {/* =================================================
-              LOADING
-              ================================================= */}
-
-          {galleryLoading && (
-
-            <div className="gallery-loading-message">
-
-              <p>
-                Loading gallery...
-              </p>
-
-            </div>
-
-          )}
-
-
-          {/* =================================================
-              NO IMAGES
-              ================================================= */}
-
-          {!galleryLoading &&
-            galleryImages.length === 0 && (
-
-              <div className="gallery-empty-message">
-
-                <p>
-                  Gallery images will be displayed here.
-                </p>
-
+          {galleryImages.map((item, index) => (
+            <div
+              className={`gallery-image ${
+                index < 5 ? `gallery-image-${index + 1}` : "gallery-image-extra"
+              }`}
+              key={item.id}
+            >
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <div className="gallery-image-caption">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
-
-            )}
-
-
-          {/* =================================================
-              DATABASE IMAGES
-              ================================================= */}
-
-          {!galleryLoading &&
-            galleryImages.length > 0 && (
-
-              galleryImages.map(
-                (item, index) => (
-
-                  <div
-                   className={`gallery-image ${
-  index < 5
-    ? `gallery-image-${index + 1}`
-    : "gallery-image-extra"
-}`}
-                    key={item.id}
-                  >
-
-                    <img
-                      src={getImageUrl(
-                        item.image
-                      )}
-                      alt={
-                        item.title ||
-                        "YARI engineering gallery"
-                      }
-                    />
-
-
-                    {/* IMAGE INFORMATION */}
-
-                    {(item.title ||
-                      item.description) && (
-
-                      <div className="gallery-image-caption">
-
-                        {item.title && (
-
-                          <h3>
-                            {item.title}
-                          </h3>
-
-                        )}
-
-
-                        {item.description && (
-
-                          <p>
-                            {item.description}
-                          </p>
-
-                        )}
-
-                      </div>
-
-                    )}
-
-                  </div>
-
-                )
-              )
-
-            )}
-
+            </div>
+          ))}
         </div>
-
       </section>
 
 

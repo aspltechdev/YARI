@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Footer from "../components/Footer.jsx";
-
+import whyYariImage from "../assets/whyyari.png";
+import heroImage1 from "../assets/heroimage.png";
+import fabricationImage from "../assets/fabricationnmetal.png";
+import hydraulicImage from "../assets/hydraulictrimming.png";
+import washingImage from "../assets/wahsingmachine.png";
+import cncMachinedImage from "../assets/cncmachinedmetalpart.png";
+import pokyokImage from "../assets/visionpokyok.png";
+import laserCuttingImage from "../assets/lasermarking.png";
+import electrochemicalImage from "../assets/electromechanicaldeburring.png";
+import logo from "../assets/logo.png";
 const heroSlides = [
   {
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=90",
+    image: heroImage1,
   },
   {
     image:
@@ -21,26 +29,23 @@ const industries = [
   {
     title: "Industrial Engineering",
     tag: "CAD & Design Solutions",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85",
+    image: hydraulicImage,
   },
   {
     title: "Manufacturing",
     tag: "Reliable Metal Components",
-    image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=85",
+    image: washingImage,
+      
   },
   {
     title: "Fabrication & Metal",
     tag: "Sheet Metal Fabrication",
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85",
+    image: fabricationImage,
   },
   {
     title: "Automotive",
     tag: "Components And Assemblies",
-    image:
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=85",
+    image: hydraulicImage,
   },
 ];
 
@@ -55,15 +60,14 @@ const products = [
       "High-Precision Custom Metal Components Manufactured For Industrial And Engineering Applications.",
     slug: "cnc-machined-metal-parts",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=85",
+      cncMachinedImage,
   },
   {
     title: "Fabricated Metal Components",
     description:
       "Custom-Fabricated Metal Parts And Assemblies For Reliable Industrial Applications.",
     slug: "fabricated-metal-components",
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85",
+    image: fabricationImage,
   },
   {
     title: "Sheet Metal Components",
@@ -71,34 +75,34 @@ const products = [
       "Precision Sheet-Metal Components Manufactured For Industrial Applications.",
     slug: "sheet-metal-components",
     image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=85",
+      hydraulicImage,
   },
 ];
 
 const galleryImages = [
   {
     image:
-      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1200&q=85",
+      washingImage,
     className: "gallery-large",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85",
+      pokyokImage,
     className: "gallery-large",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=85",
+      laserCuttingImage,
     className: "",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85",
+      hydraulicImage,
     className: "",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=85",
+      electrochemicalImage,
     className: "",
   },
 ];
@@ -115,7 +119,9 @@ export default function Home() {
           ===================================================== */}
 
       <nav className="top-navbar">
-
+ <Link to="/" className="site-logo">
+      <img src={logo} alt="YARI Logo" />
+    </Link>
         <div className="nav-links">
 
           <Link to="/" className="active">
@@ -165,7 +171,7 @@ export default function Home() {
               >
 
                 <img
-                  src={slide.image}
+                  src={heroImage1}
                   alt={`YARI engineering and manufacturing ${index + 1}`}
                 />
 
@@ -314,7 +320,7 @@ export default function Home() {
           <div className="why-yari-image">
 
             <img
-              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=90"
+              src={whyYariImage}
               alt="Engineering team working together"
             />
 

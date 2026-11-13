@@ -989,3 +989,141 @@
     padding: 0 18px;
   }
 }
+/* PROJECT OBJECTIVES, SOLUTIONS AND OUTCOMES */
+
+.product-project-details {
+  width: 100%;
+  max-width: 1050px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  justify-content: center;
+  gap: 24px;
+}
+
+.product-project-block {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 24px;
+
+  background: #f7fafc;
+  border: 1px solid #dce5eb;
+  border-top: 3px solid #18b9e8;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-project-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(8, 27, 45, 0.09);
+}
+
+.product-project-block h2 {
+  margin: 0 0 16px;
+  color: #081b2d;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.product-project-block {
+  text-align: center;
+  align-items: center;
+}
+
+.product-project-block h2 {
+  margin: 0 0 20px;
+  color: #081b2d;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.product-project-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.product-project-items p {
+  margin: 0;
+  color: #66747e;
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .product-project-details {
+    grid-template-columns: repeat(2, minmax(0, 260px));
+    gap: 18px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .product-project-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 30px auto;
+  }
+
+  .product-project-block {
+    padding: 15px;
+  }
+
+  .product-project-block h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .product-project-details {
+    grid-template-columns: 1fr;
+  }
+
+  .product-project-block {
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 22px;
+  }
+}
+.product-project-details {
+  width: 100%;
+  max-width: 1050px;
+  margin: 85px auto 50px; /* More space above the cards */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  justify-content: center;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .product-project-details {
+    margin-top: 65px;
+    grid-template-columns: repeat(2, minmax(0, 260px));
+  }
+}
+
+@media (max-width: 600px) {
+  .product-project-details {
+    margin-top: 45px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

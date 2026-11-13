@@ -1,314 +1,28 @@
+
 import { Link, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import Footer from "./components/Footer.jsx";
+import { products } from "./pages/Products.jsx";
 
 /* =========================================================
-   PRODUCT DETAILS DATA
-   ========================================================= */
-
-const productDetails = {
-  "cnc-machined-metal-parts": {
-    title: "CNC Machined Metal Parts",
-
-    image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1400&q=90",
-
-    description:
-      "High-Precision Custom Metal Components Manufactured To Customer Drawings, Dimensions, And Engineering Specifications. We Deliver Accurately Machined Parts With Consistent Quality, Tight Tolerances, And Excellent Surface Finishes For Demanding Automotive, Machinery, Industrial, And Engineering Applications.",
-
-    features: [
-      "High Precision Machining",
-      "Tight Tolerances",
-      "Excellent Surface Finish",
-      "Custom Dimensions",
-      "Consistent Quality",
-      "Drawing-Based Manufacturing",
-    ],
-
-    specifications: [
-      {
-        label: "Process",
-        value: "CNC Turning & Milling",
-      },
-      {
-        label: "Materials",
-        value: "Steel, Stainless Steel, Aluminium & Brass",
-      },
-      {
-        label: "Tolerance",
-        value: "As Per Customer Drawing",
-      },
-      {
-        label: "Production",
-        value: "Prototype, Small & Batch Production",
-      },
-    ],
-  },
-
-  "fabricated-metal-components": {
-    title: "Fabricated Metal Components",
-
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1400&q=90",
-
-    description:
-      "Custom-Fabricated Metal Parts And Assemblies Designed For Reliable Industrial Applications. Our fabrication-oriented solutions support customer-specific dimensions, practical construction requirements, and dependable assembly performance.",
-
-    features: [
-      "Custom Fabrication",
-      "Strong Construction",
-      "Precision Assembly",
-      "Durable Finish",
-      "Custom Dimensions",
-      "Production Support",
-    ],
-
-    specifications: [
-      {
-        label: "Process",
-        value: "Cutting, Bending & Fabrication",
-      },
-      {
-        label: "Materials",
-        value: "Mild Steel, Stainless Steel & Aluminium",
-      },
-      {
-        label: "Design",
-        value: "Customer Drawing & Specification Based",
-      },
-      {
-        label: "Production",
-        value: "Prototype, Small & Batch Production",
-      },
-    ],
-  },
-
-  "sheet-metal-components": {
-    title: "Sheet Metal Components",
-
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1400&q=90",
-
-    description:
-      "Precision Sheet-Metal Components Manufactured For Industrial Applications. Components can be developed according to required dimensions, forming requirements, assembly conditions, and customer engineering specifications.",
-
-    features: [
-      "Accurate Cutting",
-      "Bending & Forming",
-      "Custom Design",
-      "Consistent Finish",
-      "Drawing-Based Production",
-      "Assembly Ready",
-    ],
-
-    specifications: [
-      {
-        label: "Process",
-        value: "Sheet Cutting, Bending & Forming",
-      },
-      {
-        label: "Materials",
-        value: "Steel, Stainless Steel & Aluminium",
-      },
-      {
-        label: "Design",
-        value: "Customer Drawing Based",
-      },
-      {
-        label: "Application",
-        value: "Industrial Equipment & Assemblies",
-      },
-    ],
-  },
-
-  "machinery-components": {
-    title: "Machinery Components",
-
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=90",
-
-    description:
-      "Engineered Components And Assemblies For Industrial Machinery. YARI supports the development and manufacture of practical components for machinery, equipment, production systems, and engineering applications.",
-
-    features: [
-      "Engineering Precision",
-      "Custom Components",
-      "Robust Design",
-      "Reliable Performance",
-      "Drawing-Based Manufacturing",
-      "Industrial Applications",
-    ],
-
-    specifications: [
-      {
-        label: "Process",
-        value: "CNC Machining & Fabrication",
-      },
-      {
-        label: "Materials",
-        value: "Steel, Stainless Steel & Aluminium",
-      },
-      {
-        label: "Design",
-        value: "Engineering Drawing Based",
-      },
-      {
-        label: "Application",
-        value: "Industrial Machinery & Equipment",
-      },
-    ],
-  },
-
-  "automotive-components": {
-    title: "Automotive Components",
-
-    image:
-      "https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1400&q=90",
-
-    description:
-      "Precision-Engineered And Fabricated Components For Automotive Applications And Assemblies. Solutions can support customer-specific dimensions, component requirements, production quantities, and engineering specifications.",
-
-    features: [
-      "Precision Manufacturing",
-      "Custom Dimensions",
-      "Consistent Quality",
-      "Production Ready",
-      "Machined Components",
-      "Fabricated Assemblies",
-    ],
-
-    specifications: [
-      {
-        label: "Process",
-        value: "CNC Machining & Fabrication",
-      },
-      {
-        label: "Materials",
-        value: "Steel, Stainless Steel & Aluminium",
-      },
-      {
-        label: "Design",
-        value: "Customer Drawing Based",
-      },
-      {
-        label: "Application",
-        value: "Automotive Components & Assemblies",
-      },
-    ],
-  },
-
-  "engineered-components": {
-    title: "Engineered Components",
-
-    image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1400&q=90",
-
-    description:
-      "Precision-Engineered And Fabricated Components For Industrial And Engineering Applications. Components are developed around customer requirements, practical manufacturing considerations, and application-specific specifications.",
-
-    features: [
-      "Precision Manufacturing",
-      "Custom Dimensions",
-      "Consistent Quality",
-      "Production Ready",
-      "Engineering Support",
-      "Application Specific Design",
-    ],
-
-    specifications: [
-      {
-        label: "Process",
-        value: "Machining & Fabrication",
-      },
-      {
-        label: "Materials",
-        value: "Steel, Stainless Steel, Aluminium & Brass",
-      },
-      {
-        label: "Design",
-        value: "Customer Drawing & Requirement Based",
-      },
-      {
-        label: "Application",
-        value: "Industrial & Engineering Systems",
-      },
-    ],
-  },
-};
-
-
-/* =========================================================
-   RELATED PRODUCTS
-   ========================================================= */
-
-const relatedProducts = [
-  {
-    slug: "machinery-components",
-    title: "Machinery Components",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=700&q=90",
-    description:
-      "Engineered Components And Assemblies For Industrial Machinery.",
-  },
-
-  {
-    slug: "automotive-components",
-    title: "Automotive Components",
-    image:
-      "https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=700&q=90",
-    description:
-      "Precision-Engineered And Fabricated Components For Automotive Applications And Assemblies.",
-  },
-
-  {
-    slug: "cnc-machined-metal-parts",
-    title: "CNC Machined Metal Parts",
-    image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=700&q=90",
-    description:
-      "High-Precision Custom Metal Components For Industrial And Engineering Applications.",
-  },
-
-  {
-    slug: "fabricated-metal-components",
-    title: "Fabricated Metal Components",
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=700&q=90",
-    description:
-      "Custom-Fabricated Metal Parts And Assemblies For Reliable Industrial Applications.",
-  },
-
-  {
-    slug: "sheet-metal-components",
-    title: "Sheet Metal Components",
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=700&q=90",
-    description:
-      "Precision Sheet-Metal Components For Industrial Applications.",
-  },
-
-  {
-    slug: "engineered-components",
-    title: "Engineered Components",
-    image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=700&q=90",
-    description:
-      "Precision-Engineered Components For Industrial And Engineering Applications.",
-  },
-];
-
-
-/* =========================================================
-   COMPONENT
+   PRODUCT DETAILS COMPONENT
    ========================================================= */
 
 export default function ProductDetails() {
   const { slug } = useParams();
 
-  const product = productDetails[slug];
+  // Find the selected product
+  const product = products.find(
+    (item) => item.slug === slug
+  );
+
+  // Get three other products
+  const relatedProducts = products
+    .filter((item) => item.slug !== slug)
+    .slice(0, 3);
 
   /* =======================================================
-     INVALID PRODUCT
+     PRODUCT NOT FOUND
      ======================================================= */
 
   if (!product) {
@@ -320,13 +34,29 @@ export default function ProductDetails() {
           <div className="product-details-nav-links">
 
             <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/industries">Industries</Link>
-            <Link to="/products" className="active">
+
+            <Link to="/about">
+              About Us
+            </Link>
+
+            <Link to="/industries">
+              Industries
+            </Link>
+
+            <Link
+              to="/products"
+              className="active"
+            >
               Products
             </Link>
-            <Link to="/gallery">Gallery</Link>
-            <Link to="/contact">Contact</Link>
+
+            <Link to="/gallery">
+              Gallery
+            </Link>
+
+            <Link to="/contact">
+              Contact
+            </Link>
 
           </div>
 
@@ -346,13 +76,14 @@ export default function ProductDetails() {
 
         </section>
 
+        <Footer />
+
       </main>
     );
   }
 
-
   /* =======================================================
-     PAGE
+     PRODUCT DETAILS PAGE
      ======================================================= */
 
   return (
@@ -397,7 +128,6 @@ export default function ProductDetails() {
 
       </nav>
 
-
       {/* =====================================================
           PRODUCT DETAILS
           ===================================================== */}
@@ -408,10 +138,7 @@ export default function ProductDetails() {
 
           <div className="product-details-main">
 
-
-            {/* =================================================
-                PRODUCT IMAGE
-                ================================================= */}
+            {/* PRODUCT IMAGE */}
 
             <div className="product-details-image">
 
@@ -422,10 +149,7 @@ export default function ProductDetails() {
 
             </div>
 
-
-            {/* =================================================
-                PRODUCT INFORMATION
-                ================================================= */}
+            {/* PRODUCT INFORMATION */}
 
             <div className="product-details-info">
 
@@ -437,10 +161,7 @@ export default function ProductDetails() {
                 {product.description}
               </p>
 
-
-              {/* ===============================================
-                  KEY FEATURES
-                  =============================================== */}
+              {/* KEY FEATURES */}
 
               <div className="product-details-block">
 
@@ -471,10 +192,7 @@ export default function ProductDetails() {
 
               </div>
 
-
-              {/* ===============================================
-                  SPECIFICATION
-                  =============================================== */}
+              {/* SPECIFICATIONS */}
 
               <div className="product-details-block specification-block">
 
@@ -484,39 +202,38 @@ export default function ProductDetails() {
 
                 <div className="product-specifications">
 
-                  {product.specifications.map((specification, index) => (
+                  {product.specifications.map(
+                    (specification, index) => (
 
-                    <div
-                      className="product-specification"
-                      key={index}
-                    >
+                      <div
+                        className="product-specification"
+                        key={index}
+                      >
 
-                      <span className="product-details-dot"></span>
+                        <span className="product-details-dot"></span>
 
-                      <div>
+                        <div>
 
-                        <strong>
-                          {specification.label}
-                        </strong>
+                          <strong>
+                            {specification.label}
+                          </strong>
 
-                        <span>
-                          {specification.value}
-                        </span>
+                          <span>
+                            {specification.value}
+                          </span>
+
+                        </div>
 
                       </div>
 
-                    </div>
-
-                  ))}
+                    )
+                  )}
 
                 </div>
 
               </div>
 
-
-              {/* ===============================================
-                  REQUEST QUOTE
-                  =============================================== */}
+              {/* REQUEST QUOTE */}
 
               <Link
                 to="/contact"
@@ -528,8 +245,38 @@ export default function ProductDetails() {
             </div>
 
           </div>
+{/* PROJECT OBJECTIVES, SOLUTIONS AND OUTCOMES */}
 
+<section className="product-project-details">
 
+  <div className="product-project-block">
+    <h2>Project Objectives</h2>
+    <div className="product-project-items">
+  {product.outcomes?.map((item, index) => (
+    <p key={index}>{item}</p>
+  ))}
+</div>
+  </div>
+
+  <div className="product-project-block">
+    <h2>Solutions</h2>
+   <div className="product-project-items">
+  {product.outcomes?.map((item, index) => (
+    <p key={index}>{item}</p>
+  ))}
+</div>
+  </div>
+
+  <div className="product-project-block">
+    <h2>Outcomes</h2>
+<div className="product-project-items">
+  {product.outcomes?.map((item, index) => (
+    <p key={index}>{item}</p>
+  ))}
+</div>
+  </div>
+
+</section>
           {/* =================================================
               RELATED PRODUCTS
               ================================================= */}
@@ -542,51 +289,48 @@ export default function ProductDetails() {
 
             <div className="related-products-grid">
 
-              {relatedProducts
-                .filter((related) => related.slug !== slug)
-                .slice(0, 3)
-                .map((related) => (
+              {relatedProducts.map((related) => (
 
-                  <article
-                    className="related-product-card"
-                    key={related.slug}
+                <article
+                  className="related-product-card"
+                  key={related.slug}
+                >
+
+                  <Link
+                    to={`/products/${related.slug}`}
+                    className="related-product-image"
                   >
+
+                    <img
+                      src={related.image}
+                      alt={related.title}
+                    />
+
+                  </Link>
+
+                  <div className="related-product-content">
+
+                    <h3>
+                      {related.title}
+                    </h3>
+
+                    <p>
+                      {related.description}
+                    </p>
 
                     <Link
                       to={`/products/${related.slug}`}
-                      className="related-product-image"
+                      className="related-product-arrow"
+                      aria-label={`View ${related.title}`}
                     >
-
-                      <img
-                        src={related.image}
-                        alt={related.title}
-                      />
-
+                      ↗
                     </Link>
 
-                    <div className="related-product-content">
+                  </div>
 
-                      <h3>
-                        {related.title}
-                      </h3>
+                </article>
 
-                      <p>
-                        {related.description}
-                      </p>
-
-                      <Link
-                        to={`/products/${related.slug}`}
-                        className="related-product-arrow"
-                        aria-label={`View ${related.title}`}
-                      >
-                        ↗
-                      </Link>
-
-                    </div>
-
-                  </article>
-
-                ))}
+              ))}
 
             </div>
 
@@ -596,41 +340,42 @@ export default function ProductDetails() {
 
       </section>
 
-{/* =====================================================
-    START A PROJECT / CTA
-    ===================================================== */}
+      {/* =====================================================
+          START A PROJECT / CTA
+          ===================================================== */}
 
-<section className="start-project-section">
+      <section className="start-project-section">
 
-  <div className="start-project-overlay"></div>
+        <div className="start-project-overlay"></div>
 
-  <div className="start-project-content">
+        <div className="start-project-content">
 
-    <p className="start-project-eyebrow">
-      START A PROJECT
-    </p>
+          <p className="start-project-eyebrow">
+            START A PROJECT
+          </p>
 
-    <h2>
-      Let’s Build Your Next Industrial Solution
-    </h2>
+          <h2>
+            Let’s Build Your Next Industrial Solution
+          </h2>
 
-    <p className="start-project-description">
-      Partner With Quality Engineering Solutions For Reliable Industrial
-      Marking Technologies That Deliver Precision, Durability,
-      And Long-Term Performance.
-    </p>
+          <p className="start-project-description">
+            Partner With Quality Engineering Solutions For Reliable
+            Industrial Marking Technologies That Deliver Precision,
+            Durability, And Long-Term Performance.
+          </p>
 
-    <a
-      href="/contact"
-      className="start-project-button"
-    >
-      Request A Quote
-    </a>
+          <Link
+            to="/contact"
+            className="start-project-button"
+          >
+            Request A Quote
+          </Link>
 
-  </div>
+        </div>
 
-</section>
-<Footer />
+      </section>
+
+      <Footer />
 
     </main>
   );
