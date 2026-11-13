@@ -12,6 +12,7 @@ import electrochemicalImage from "../assets/electromechanicaldeburring.png";
 import fumeExtractionImage from "../assets/fumeextraction.png";
 import dotPeenImage from "../assets/dotpeen.png";
 import logo from "../assets/logo.png";
+import Navbar from "../components/Navbar.jsx";
 /* =====================================================
    PRODUCT DATA
    Shared with ProductDetails.jsx
@@ -371,7 +372,7 @@ export default function Products() {
 
       {/* NAVIGATION */}
 
-      <nav className="products-navbar">
+      {/* <nav className="products-navbar">
          <Link to="/" className="site-logo">
       <img src={logo} alt="YARI Logo" />
     </Link>
@@ -387,8 +388,9 @@ export default function Products() {
           <Link to="/gallery">Gallery</Link>
           <Link to="/contact">Contact</Link>
         </div>
-      </nav>
+      </nav> */}
 
+<Navbar/>
       {/* PRODUCTS HERO */}
 
       <section className="products-hero">

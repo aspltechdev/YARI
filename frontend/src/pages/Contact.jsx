@@ -5,6 +5,7 @@ import Footer from "../components/Footer.jsx";
 import whyyariImage from "../assets/whyyari.png";
 import fabricationImage from "../assets/fabricationnmetal.png";
 import leakageImage from "../assets/leaktesting.png";
+import Navbar from "../components/Navbar.jsx";
 
 const Contact = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -80,7 +81,7 @@ ${formData.message}`;
           NAVIGATION
           ===================================================== */}
 
-      <nav className="contact-navbar">
+      {/* <nav className="contact-navbar">
 
         <div className="contact-nav-links">
 
@@ -113,7 +114,9 @@ ${formData.message}`;
 
         </div>
 
-      </nav>
+      </nav> */}
+
+      <Navbar/>
 
 
       {/* =====================================================

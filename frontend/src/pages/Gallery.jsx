@@ -6,6 +6,7 @@ import pokyokImage from "../assets/visionpokyok.png";
 import washingImage from "../assets/wahsingmachine.png";
 import Footer from "../components/Footer.jsx";
 import logo from "../assets/logo.png";
+import Navbar from "../components/Navbar.jsx";
 
 
 /* =====================================================
@@ -50,7 +51,7 @@ export default function Gallery() {
           NAVIGATION
           ===================================================== */}
 
-      <nav className="gallery-navbar">
+      {/* <nav className="gallery-navbar">
  <a to="/" className="site-logo">
       <img src={logo} alt="YARI Logo" />
     </a>
@@ -85,7 +86,9 @@ export default function Gallery() {
 
         </div>
 
-      </nav>
+      </nav> */}
+
+      <Navbar/>
 
 
       {/* =====================================================

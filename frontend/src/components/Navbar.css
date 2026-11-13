@@ -1,0 +1,317 @@
+
+/* =========================================
+   YARI PREMIUM NAVBAR
+   Isolated CSS — No Global Selector Conflicts
+========================================= */
+
+.yari-header {
+  --yari-navy: #081b2d;
+  --yari-cyan: #16b8e8;
+  --yari-white: #ffffff;
+
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  background: var(--yari-navy);
+}
+
+.yari-navbar,
+.yari-navbar * {
+  box-sizing: border-box;
+}
+
+.yari-navbar {
+  width: 100%;
+  max-width: 1600px;
+  min-height: 100px;
+  margin: 0 auto;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+/* LOGO */
+
+.yari-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  text-decoration: none;
+  outline-offset: 5px;
+}
+
+.yari-logo img {
+  display: block;
+  width: auto;
+  max-width: 190px;
+  height: 65px;
+  object-fit: contain;
+  object-position: left center;
+  transition: transform 0.35s ease;
+}
+
+.yari-logo:hover img {
+  transform: scale(1.04);
+}
+
+/* NAVIGATION WRAPPER */
+
+.yari-nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 38px;
+}
+
+/* NAV LINKS */
+
+.yari-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.yari-navbar .yari-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  padding: 12px 0;
+
+  color: rgba(255,255,255,0.78);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+/* Animated underline */
+
+.yari-navbar .yari-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--yari-cyan);
+
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(.2,.7,.2,1);
+}
+
+.yari-navbar .yari-nav-link:hover,
+.yari-navbar .yari-nav-link.active {
+  color: var(--yari-cyan);
+}
+
+.yari-navbar .yari-nav-link:hover::after,
+.yari-navbar .yari-nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* CTA BUTTON */
+
+.yari-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 46px;
+  padding: 0 19px;
+
+  color: #081b2d;
+  background: var(--yari-cyan);
+
+  border: 1px solid var(--yari-cyan);
+  border-radius: 3px;
+
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.yari-nav-cta:hover {
+  color: #ffffff;
+  background: transparent;
+  transform: translateY(-3px);
+}
+
+.yari-nav-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.yari-nav-cta:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* MOBILE TOGGLE */
+
+.yari-mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 3px;
+
+  cursor: pointer;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .yari-navbar {
+    padding: 0 4%;
+    gap: 20px;
+  }
+
+  .yari-nav-menu {
+    gap: 22px;
+  }
+
+  .yari-nav-links {
+    gap: 21px;
+  }
+
+  .yari-navbar .yari-nav-link {
+    font-size: 13px;
+  }
+
+  .yari-logo img {
+    max-width: 155px;
+  }
+}
+
+/* MOBILE NAVIGATION */
+
+@media (max-width: 850px) {
+  .yari-navbar {
+    min-height: 82px;
+    padding: 0 5%;
+  }
+
+  .yari-logo img {
+    height: 55px;
+    max-width: 155px;
+  }
+
+  .yari-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .yari-nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+
+    padding: 25px 6% 30px;
+
+    background: #081b2d;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(22,184,232,0.25);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-12px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .yari-nav-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .yari-nav-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .yari-navbar .yari-nav-link {
+    width: 100%;
+    padding: 17px 0;
+
+    font-size: 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .yari-navbar .yari-nav-link::after {
+    display: none;
+  }
+
+  .yari-navbar .yari-nav-link.active {
+    color: var(--yari-cyan);
+    padding-left: 10px;
+  }
+
+  .yari-nav-cta {
+    width: 100%;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .yari-navbar {
+    min-height: 74px;
+    padding: 0 20px;
+  }
+
+  .yari-logo img {
+    max-width: 135px;
+    height: 48px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .yari-navbar *,
+  .yari-navbar *::before,
+  .yari-navbar *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

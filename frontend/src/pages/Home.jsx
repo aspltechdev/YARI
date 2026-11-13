@@ -11,6 +11,7 @@ import pokyokImage from "../assets/visionpokyok.png";
 import laserCuttingImage from "../assets/lasermarking.png";
 import electrochemicalImage from "../assets/electromechanicaldeburring.png";
 import logo from "../assets/logo.png";
+import Navbar from "../components/Navbar.jsx";
 const heroSlides = [
   {
     image: heroImage1,
@@ -118,7 +119,7 @@ export default function Home() {
           TOP NAVIGATION
           ===================================================== */}
 
-      <nav className="top-navbar">
+      {/* <nav className="top-navbar">
  <Link to="/" className="site-logo">
       <img src={logo} alt="YARI Logo" />
     </Link>
@@ -150,9 +151,9 @@ export default function Home() {
 
         </div>
 
-      </nav>
+      </nav> */}
 
-
+<Navbar/>
       {/* =====================================================
           HERO SECTION
           ===================================================== */}

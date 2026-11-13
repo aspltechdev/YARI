@@ -4,6 +4,7 @@ import washingImage from "../assets/wahsingmachine.png";
 import fabricationImage from "../assets/fabricationnmetal.png";
 import visionImage from "../assets/visionpokyok.png";
 import logo from "../assets/logo.png";
+import Navbar from "../components/Navbar.jsx";
 /* =====================================================
    INDUSTRY HERO SLIDES
    ===================================================== */
@@ -66,7 +67,7 @@ export default function Industries() {
           NAVIGATION
           ===================================================== */}
 
-      <nav className="industries-navbar">
+      {/* <nav className="industries-navbar">
             <a to="/" className="site-logo">
       <img src={logo} alt="YARI Logo" />
     </a>
@@ -101,7 +102,9 @@ export default function Industries() {
 
         </div>
 
-      </nav>
+      </nav> */}
+
+      <Navbar/>
 
 
       {/* =====================================================
