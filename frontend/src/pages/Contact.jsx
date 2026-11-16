@@ -253,7 +253,17 @@ ${formData.message}`;
 
 
               {/* EMAIL */}
+   <div className="contact-detail">
 
+                <h3>
+               Phone Number
+                </h3>
+
+                <p>
+                  7871000270
+                </p>
+
+              </div>
               <div className="contact-detail">
 
                 <h3>
@@ -261,7 +271,7 @@ ${formData.message}`;
                 </h3>
 
                 <p>
-                  Yari.Innovative@Gmail.Com
+            info@yaridms
                 </p>
 
               </div>

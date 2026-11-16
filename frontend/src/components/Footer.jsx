@@ -84,13 +84,24 @@ export default function Footer() {
         {/* CONTACT */}
 
         <div className="site-footer-column site-footer-contact">
+          <h3>Phone</h3>
+
+         <a
+  href="tel:7871000270"
+  className="site-footer-email"
+>
+  7871000270
+</a>
+
+          <h3 className="site-footer-contact-title"></h3>
+
           <h3>EMAIL</h3>
 
           <a
-            href="mailto:yari.innovative@gmail.com"
+            href="mailto: info@yaridms.in"
             className="site-footer-email"
           >
-            yari.innovative@gmail.com
+           info@yaridms.in
           </a>
 
           <h3 className="site-footer-contact-title">
@@ -105,7 +116,7 @@ export default function Footer() {
         </div>
 
 <a
-  href="https://wa.me/917871000270"
+  href="https://wa.me/7871000270"
   target="_blank"
   rel="noopener noreferrer"
   className="site-footer-whatsapp"
@@ -132,6 +143,9 @@ export default function Footer() {
         <p>
           © 2026 YARI Design &amp; Manufacturing Services.
           All rights reserved.
+        </p>
+         <p>
+       Developed by ASPL Tech Solutions Pvt Ltd Bangalore
         </p>
       </div>
     </footer>
