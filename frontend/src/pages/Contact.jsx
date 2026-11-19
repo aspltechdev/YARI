@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import logo from "../assets/logo.png";
+
 import Footer from "../components/Footer.jsx";
 import whyyariImage from "../assets/whyyari.png";
 import fabricationImage from "../assets/fabricationnmetal.png";

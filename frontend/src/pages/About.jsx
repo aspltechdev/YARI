@@ -2,7 +2,7 @@ import "./About.css";
 import Footer from "../components/Footer.jsx";
 import washingImage from "../assets/wahsingmachine.png";
 import hydraulicImage from "../assets/hydraulictrimming.png";
-import logo from "../assets/logo.png";
+
 import Navbar from "../components/Navbar.jsx";
 const heroSlides = [
   {

@@ -1,0 +1,751 @@
+
+/* =========================================
+   GLOBAL VENDORS PAGE
+========================================= */
+
+.vendors-page {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  color: #0b1e32;
+  font-family: "Outfit", sans-serif;
+}
+
+.vendors-container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+.vendors-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #08a9d8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* =========================================
+   HERO SLIDER
+========================================= */
+
+.vendors-hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: #071c2e;
+}
+
+.vendors-hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1s ease, transform 4s ease;
+}
+
+.vendors-hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.vendors-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 55px;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 20, 35, 0.88),
+    rgba(4, 20, 35, 0.62) 50%,
+    rgba(4, 20, 35, 0.12)
+  );
+}
+
+.vendors-hero-content {
+  max-width: 650px;
+  color: #fff;
+}
+
+.vendors-hero-label {
+  display: block;
+  margin-bottom: 18px;
+  color: #35c5ee;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.vendors-hero-content h1 {
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(35px, 4vw, 49px);
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.vendors-hero-content p {
+  max-width: 620px;
+  margin: 0;
+  color: #edf3f7;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* HERO DOTS */
+
+.vendors-hero-dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateX(-50%);
+}
+
+.vendors-hero-dots button {
+  width: 25px;
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.vendors-hero-dots button.active {
+  width: 38px;
+  background: #10b5e4;
+}
+
+/* =========================================
+   COMMON SECTION HEADINGS
+========================================= */
+
+.vendors-section-heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.vendors-section-heading h2 {
+  margin: 0 0 12px;
+  color: #0b1e32;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.vendors-section-heading p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #657586;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   CLIENTS & COLLABORATIONS
+========================================= */
+
+.vendors-section {
+  padding: 70px 0;
+  background: #fff;
+}
+
+.vendors-heading {
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.vendors-heading h1 {
+  margin: 0;
+  color: #0b1e32;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   CLIENT LOGO CONTINUOUS MARQUEE
+========================================= */
+
+.vendors-logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 15px 0;
+}
+
+/* Moving track */
+
+.vendors-logo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 30px;
+  animation: vendorsLogoScroll 38s linear infinite;
+  will-change: transform;
+}
+
+/* Individual logo cards */
+
+.vendors-logo-card {
+  flex: 0 0 270px;
+  width: 270px;
+  height: 135px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #e5ebf0;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.vendors-logo-card:hover {
+  box-shadow: 0 8px 22px rgba(9, 30, 50, 0.10);
+}
+
+/* Logo images */
+
+.vendors-logo-card img {
+  display: block;
+  max-width: 85%;
+  max-height: 85px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Right to left animation */
+
+@keyframes vendorsLogoScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 15px));
+  }
+}
+
+/* Pause on hover */
+
+.vendors-logo-marquee:hover .vendors-logo-track {
+  animation-play-state: paused;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .vendors-logo-track {
+    gap: 20px;
+    animation-duration: 32s;
+  }
+
+  .vendors-logo-card {
+    flex-basis: 220px;
+    width: 220px;
+    height: 115px;
+  }
+
+  .vendors-logo-card img {
+    max-height: 75px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .vendors-logo-track {
+    gap: 15px;
+    animation-duration: 28s;
+  }
+
+  .vendors-logo-card {
+    flex-basis: 180px;
+    width: 180px;
+    height: 100px;
+    padding: 15px;
+  }
+
+  .vendors-logo-card img {
+    max-height: 65px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .vendors-logo-track {
+    animation: none;
+  }
+}
+
+
+
+
+.vendors-description {
+  margin-top: 35px;
+}
+
+.vendors-description p {
+  margin: 0;
+  color: #34475a;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   ENGINEERING CAPABILITIES
+========================================= */
+
+.vendors-capabilities {
+  padding: 70px 0;
+  background: #f2f5f8;
+}
+
+.vendors-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.vendors-capability-card {
+  min-width: 0;
+  padding: 28px 25px;
+  background: #fff;
+  border: 1px solid #e0e8ef;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vendors-capability-card:hover {
+  transform: translateY(-5px);
+  border-color: #10a8d9;
+  box-shadow: 0 12px 25px rgba(9, 30, 50, 0.08);
+}
+
+.vendors-card-number {
+  color: #08a9d8;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.vendors-card-line {
+  width: 100%;
+  height: 1px;
+  margin: 16px 0 20px;
+  background: #e0e8ef;
+}
+
+.vendors-capability-card h3 {
+  margin: 0 0 12px;
+  color: #0b1e32;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.vendors-capability-card p {
+  margin: 0 0 18px;
+  color: #657586;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.vendors-capability-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vendors-capability-card li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 18px;
+  color: #34475a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.vendors-capability-card li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10a8d9;
+}
+
+/* =========================================
+   INTEGRATED TECHNOLOGIES
+========================================= */
+
+.vendors-technologies {
+  padding: 75px 0;
+  background: #f2f5f8;
+}
+
+.vendors-technology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* TECHNOLOGY CARD */
+
+.vendors-technology-card {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #dce5ed;
+  border-radius: 9px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vendors-technology-card:hover {
+  transform: translateY(-6px);
+  border-color: #10a8d9;
+  box-shadow: 0 12px 28px rgba(0, 35, 65, 0.12);
+}
+
+/* TECHNOLOGY IMAGE */
+
+.vendors-technology-image {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #e5ebf0;
+}
+
+.vendors-technology-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.vendors-technology-card:hover .vendors-technology-image img {
+  transform: scale(1.06);
+}
+
+/* TECHNOLOGY CONTENT */
+
+.vendors-technology-content {
+  padding: 22px 20px 25px;
+  text-align: center;
+}
+
+.vendors-technology-content span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  background: #e3f7fc;
+  color: #008dbb;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.vendors-technology-content h3 {
+  margin: 0 0 12px;
+  color: #0b1e32;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.vendors-technology-content p {
+  margin: 0;
+  color: #657586;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   YARI APPROACH
+========================================= */
+
+.vendors-philosophy {
+  position: relative;
+  padding: 90px 0;
+  background:
+    linear-gradient(
+      rgba(3, 20, 35, 0.88),
+      rgba(3, 20, 35, 0.91)
+    ),
+    url("../assets/fabricationnmetal.png") center/cover no-repeat;
+  text-align: center;
+}
+
+.vendors-philosophy .vendors-container {
+  position: relative;
+  z-index: 1;
+}
+
+.vendors-philosophy h2 {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.vendors-philosophy p {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  color: #dce6ee;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* CONTACT BUTTON */
+
+.vendors-contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 14px 26px;
+  background: #10a8d9;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.vendors-contact-button:hover {
+  background: #087fa9;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+  .vendors-hero {
+    height: 440px;
+  }
+
+  .vendors-hero-overlay {
+    padding: 40px;
+  }
+
+  .vendors-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .vendors-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vendors-capability-grid,
+  .vendors-technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .vendors-container {
+    width: 90%;
+  }
+
+  .vendors-hero {
+    height: 430px;
+  }
+
+  .vendors-hero-overlay {
+    padding: 25px;
+    background: linear-gradient(
+      90deg,
+      rgba(5, 20, 34, 0.88),
+      rgba(5, 20, 34, 0.52)
+    );
+  }
+
+  .vendors-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .vendors-hero-content p {
+    font-size: 14px;
+  }
+
+  .vendors-section,
+  .vendors-capabilities,
+  .vendors-technologies {
+    padding: 50px 0;
+  }
+
+  .vendors-heading h1,
+  .vendors-section-heading h2 {
+    font-size: 27px;
+  }
+
+  .vendors-section-heading {
+    margin-bottom: 28px;
+  }
+
+  /* CLIENT LOGOS */
+
+  .vendors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .vendors-logo-card {
+    height: 95px;
+  }
+
+  .vendors-logo-card img {
+    max-height: 65px;
+  }
+
+  .vendors-description p {
+    font-size: 15px;
+  }
+
+  /* CAPABILITIES */
+
+  .vendors-capability-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* TECHNOLOGY CARDS */
+
+  .vendors-technology-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .vendors-technology-image {
+    height: 210px;
+  }
+
+  .vendors-technology-content {
+    padding: 22px;
+  }
+
+  /* YARI APPROACH */
+
+  .vendors-philosophy {
+    padding: 60px 0;
+  }
+
+  .vendors-philosophy h2 {
+    font-size: 27px;
+  }
+
+  .vendors-philosophy p {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .vendors-hero {
+    height: 400px;
+  }
+
+  .vendors-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .vendors-heading h1,
+  .vendors-section-heading h2 {
+    font-size: 24px;
+  }
+
+  .vendors-technology-image {
+    height: 175px;
+  }
+
+  .vendors-philosophy h2 {
+    font-size: 24px;
+  }
+}
+/* =========================================
+   VENDORS HERO — MATCH PRODUCTS PAGE
+========================================= */
+
+.vendors-page .vendors-hero {
+  height: 415px !important;
+  min-height: 415px !important;
+  max-height: 415px !important;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.vendors-page .vendors-hero-slide,
+.vendors-page .vendors-hero-overlay {
+  height: 100%;
+}
+
+/* =========================================
+   VENDORS HERO — LEFT ALIGNMENT
+   Match Products Hero
+========================================= */
+
+.vendors-hero-overlay {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  padding: 55px !important;
+  text-align: left !important;
+}
+
+.vendors-hero-content {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.vendors-hero-content h1 {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.vendors-hero-content p {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

@@ -3,7 +3,7 @@ import Footer from "../components/Footer.jsx";
 import washingImage from "../assets/wahsingmachine.png";
 import fabricationImage from "../assets/fabricationnmetal.png";
 import visionImage from "../assets/visionpokyok.png";
-import logo from "../assets/logo.png";
+
 import Navbar from "../components/Navbar.jsx";
 /* =====================================================
    INDUSTRY HERO SLIDES

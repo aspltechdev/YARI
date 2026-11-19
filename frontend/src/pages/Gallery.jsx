@@ -5,7 +5,7 @@ import laserCuttingImage from "../assets/lasermarking.png";
 import pokyokImage from "../assets/visionpokyok.png";
 import washingImage from "../assets/wahsingmachine.png";
 import Footer from "../components/Footer.jsx";
-import logo from "../assets/logo.png";
+
 import Navbar from "../components/Navbar.jsx";
 
 

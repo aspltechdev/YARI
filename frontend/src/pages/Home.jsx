@@ -10,7 +10,7 @@ import cncMachinedImage from "../assets/cncmachinedmetalpart.png";
 import pokyokImage from "../assets/visionpokyok.png";
 import laserCuttingImage from "../assets/lasermarking.png";
 import electrochemicalImage from "../assets/electromechanicaldeburring.png";
-import logo from "../assets/logo.png";
+
 import Navbar from "../components/Navbar.jsx";
 const heroSlides = [
   {

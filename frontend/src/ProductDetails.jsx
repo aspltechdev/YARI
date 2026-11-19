@@ -1,69 +1,39 @@
 
 import { Link, useParams } from "react-router-dom";
-import "./ProductDetails.css";
+
+import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+
+import "./ProductDetails.css";
 import { products } from "./pages/Products.jsx";
 
 /* =========================================================
    PRODUCT DETAILS COMPONENT
-   ========================================================= */
+========================================================= */
 
 export default function ProductDetails() {
   const { slug } = useParams();
 
-  // Find the selected product
+  // Find selected product
   const product = products.find(
     (item) => item.slug === slug
   );
 
-  // Get three other products
+  // Get three related products
   const relatedProducts = products
     .filter((item) => item.slug !== slug)
     .slice(0, 3);
 
   /* =======================================================
      PRODUCT NOT FOUND
-     ======================================================= */
+  ======================================================= */
 
   if (!product) {
     return (
       <main className="product-details-page">
-
-        <nav className="product-details-navbar">
-
-          <div className="product-details-nav-links">
-
-            <Link to="/">Home</Link>
-
-            <Link to="/about">
-              About Us
-            </Link>
-
-            <Link to="/industries">
-              Industries
-            </Link>
-
-            <Link
-              to="/products"
-              className="active"
-            >
-              Products
-            </Link>
-
-            <Link to="/gallery">
-              Gallery
-            </Link>
-
-            <Link to="/contact">
-              Contact
-            </Link>
-
-          </div>
-
-        </nav>
+        <Navbar />
 
         <section className="product-not-found">
-
           <h1>Product Not Found</h1>
 
           <p>
@@ -73,64 +43,50 @@ export default function ProductDetails() {
           <Link to="/products">
             Back To Products
           </Link>
-
         </section>
 
         <Footer />
-
       </main>
     );
   }
 
   /* =======================================================
+     PROJECT DETAILS DATA
+  ======================================================= */
+
+  const projectSections = [
+    {
+      title: "Project Objectives",
+      items: product.objectives || [],
+    },
+    {
+      title: "Solutions",
+      items: product.solutions || [],
+    },
+    {
+      title: "Outcomes",
+      items: product.outcomes || [],
+    },
+  ];
+
+  const hasProjectDetails = projectSections.some(
+    (section) => section.items.length > 0
+  );
+
+  /* =======================================================
      PRODUCT DETAILS PAGE
-     ======================================================= */
+  ======================================================= */
 
   return (
     <main className="product-details-page">
 
-      {/* =====================================================
-          NAVIGATION
-          ===================================================== */}
+      {/* NAVIGATION */}
 
-      <nav className="product-details-navbar">
+      <Navbar />
 
-        <div className="product-details-nav-links">
-
-          <Link to="/">
-            Home
-          </Link>
-
-          <Link to="/about">
-            About Us
-          </Link>
-
-          <Link to="/industries">
-            Industries
-          </Link>
-
-          <Link
-            to="/products"
-            className="active"
-          >
-            Products
-          </Link>
-
-          <Link to="/gallery">
-            Gallery
-          </Link>
-
-          <Link to="/contact">
-            Contact
-          </Link>
-
-        </div>
-
-      </nav>
-
-      {/* =====================================================
+      {/* ===============================================
           PRODUCT DETAILS
-          ===================================================== */}
+      =============================================== */}
 
       <section className="product-details-section">
 
@@ -141,21 +97,17 @@ export default function ProductDetails() {
             {/* PRODUCT IMAGE */}
 
             <div className="product-details-image">
-
               <img
                 src={product.image}
                 alt={product.title}
               />
-
             </div>
 
             {/* PRODUCT INFORMATION */}
 
             <div className="product-details-info">
 
-              <h1>
-                {product.title}
-              </h1>
+              <h1>{product.title}</h1>
 
               <p className="product-details-description">
                 {product.description}
@@ -165,55 +117,43 @@ export default function ProductDetails() {
 
               <div className="product-details-block">
 
-                <h2>
-                  KEY FEATURES
-                </h2>
+                <h2>KEY FEATURES</h2>
 
                 <div className="product-details-features">
 
-                  {product.features.map((feature, index) => (
+                  {(product.features || []).map(
+                    (feature, index) => (
+                      <div
+                        className="product-details-feature"
+                        key={index}
+                      >
+                        <span className="product-details-dot" />
 
-                    <div
-                      className="product-details-feature"
-                      key={index}
-                    >
-
-                      <span className="product-details-dot"></span>
-
-                      <span>
-                        {feature}
-                      </span>
-
-                    </div>
-
-                  ))}
+                        <span>{feature}</span>
+                      </div>
+                    )
+                  )}
 
                 </div>
-
               </div>
 
               {/* SPECIFICATIONS */}
 
               <div className="product-details-block specification-block">
 
-                <h2>
-                  SPECIFICATION
-                </h2>
+                <h2>SPECIFICATION</h2>
 
                 <div className="product-specifications">
 
-                  {product.specifications.map(
+                  {(product.specifications || []).map(
                     (specification, index) => (
-
                       <div
                         className="product-specification"
                         key={index}
                       >
-
-                        <span className="product-details-dot"></span>
+                        <span className="product-details-dot" />
 
                         <div>
-
                           <strong>
                             {specification.label}
                           </strong>
@@ -221,16 +161,12 @@ export default function ProductDetails() {
                           <span>
                             {specification.value}
                           </span>
-
                         </div>
-
                       </div>
-
                     )
                   )}
 
                 </div>
-
               </div>
 
               {/* REQUEST QUOTE */}
@@ -243,110 +179,94 @@ export default function ProductDetails() {
               </Link>
 
             </div>
-
           </div>
-{/* PROJECT OBJECTIVES, SOLUTIONS AND OUTCOMES */}
 
-<section className="product-project-details">
+          {/* ===============================================
+              PROJECT OBJECTIVES, SOLUTIONS & OUTCOMES
+          =============================================== */}
 
-  <div className="product-project-block">
-    <h2>Project Objectives</h2>
-    <div className="product-project-items">
-  {product.outcomes?.map((item, index) => (
-    <p key={index}>{item}</p>
-  ))}
-</div>
-  </div>
+          {hasProjectDetails && (
+            <section className="product-project-details">
 
-  <div className="product-project-block">
-    <h2>Solutions</h2>
-   <div className="product-project-items">
-  {product.outcomes?.map((item, index) => (
-    <p key={index}>{item}</p>
-  ))}
-</div>
-  </div>
-
-  <div className="product-project-block">
-    <h2>Outcomes</h2>
-<div className="product-project-items">
-  {product.outcomes?.map((item, index) => (
-    <p key={index}>{item}</p>
-  ))}
-</div>
-  </div>
-
-</section>
-          {/* =================================================
-              RELATED PRODUCTS
-              ================================================= */}
-
-          <div className="related-products-section">
-
-            <h2>
-              RELATED PRODUCTS
-            </h2>
-
-            <div className="related-products-grid">
-
-              {relatedProducts.map((related) => (
-
-                <article
-                  className="related-product-card"
-                  key={related.slug}
-                >
-
-                  <Link
-                    to={`/products/${related.slug}`}
-                    className="related-product-image"
+              {projectSections.map((section) => (
+                section.items.length > 0 && (
+                  <div
+                    className="product-project-block"
+                    key={section.title}
                   >
+                    <h2>{section.title}</h2>
 
-                    <img
-                      src={related.image}
-                      alt={related.title}
-                    />
+                    <div className="product-project-items">
+                      {section.items.map((item, index) => (
+                        <p key={index}>{item}</p>
+                      ))}
+                    </div>
+                  </div>
+                )
+              ))}
 
-                  </Link>
+            </section>
+          )}
 
-                  <div className="related-product-content">
+          {/* ===============================================
+              RELATED PRODUCTS
+          =============================================== */}
 
-                    <h3>
-                      {related.title}
-                    </h3>
+          {relatedProducts.length > 0 && (
+            <div className="related-products-section">
 
-                    <p>
-                      {related.description}
-                    </p>
+              <h2>RELATED PRODUCTS</h2>
+
+              <div className="related-products-grid">
+
+                {relatedProducts.map((related) => (
+                  <article
+                    className="related-product-card"
+                    key={related.slug}
+                  >
 
                     <Link
                       to={`/products/${related.slug}`}
-                      className="related-product-arrow"
-                      aria-label={`View ${related.title}`}
+                      className="related-product-image"
                     >
-                      ↗
+                      <img
+                        src={related.image}
+                        alt={related.title}
+                      />
                     </Link>
 
-                  </div>
+                    <div className="related-product-content">
 
-                </article>
+                      <h3>{related.title}</h3>
 
-              ))}
+                      <p>{related.description}</p>
 
+                      <Link
+                        to={`/products/${related.slug}`}
+                        className="related-product-arrow"
+                        aria-label={`View ${related.title}`}
+                      >
+                        ↗
+                      </Link>
+
+                    </div>
+                  </article>
+                ))}
+
+              </div>
             </div>
-
-          </div>
+          )}
 
         </div>
-
       </section>
 
-      {/* =====================================================
-          START A PROJECT / CTA
-          ===================================================== */}
+      {/* ===============================================
+          START A PROJECT CTA
+      =============================================== */}
 
       <section className="start-project-section">
 
-        <div className="start-project-overlay"></div>
+        <div className="start-project-overlay" />
 
         <div className="start-project-content">
 
@@ -372,7 +292,6 @@ export default function ProductDetails() {
           </Link>
 
         </div>
-
       </section>
 
       <Footer />

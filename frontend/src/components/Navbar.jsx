@@ -12,19 +12,22 @@ import {
 } from "react-icons/hi2";
 
 import "./Navbar.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpeg";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Industries", path: "/industries" },
-    { name: "Products", path: "/products" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact", path: "/contact" },
-  ];
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Industries", path: "/industries" },
+  { name: "Products", path: "/products" },
+
+  { name: "Vendors", path: "/vendors" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Careers", path: "/career" },
+  { name: "Contact", path: "/contact" },
+];
 
   const closeMenu = () => {
     setMenuOpen(false);

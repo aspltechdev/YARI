@@ -11,7 +11,7 @@ import hydraulicImage from "../assets/hydraulictrimming.png";
 import electrochemicalImage from "../assets/electromechanicaldeburring.png";
 import fumeExtractionImage from "../assets/fumeextraction.png";
 import dotPeenImage from "../assets/dotpeen.png";
-import logo from "../assets/logo.png";
+
 import Navbar from "../components/Navbar.jsx";
 /* =====================================================
    PRODUCT DATA
