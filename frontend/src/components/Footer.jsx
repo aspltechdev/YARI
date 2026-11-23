@@ -73,7 +73,7 @@ export default function Footer() {
   <Link to="/industries">Industries</Link>
   <Link to="/products">Products</Link>
   <Link to="/solutions">Solutions</Link>
-  <Link to="/vendors">Vendors</Link>
+  <Link to="/Clients">Clients</Link>
   <Link to="/gallery">Gallery</Link>
   <Link to="/career">Careers</Link>
   <Link to="/contact">Contact</Link>

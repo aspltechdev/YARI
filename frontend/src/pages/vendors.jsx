@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
-import "./vendors.css";
+import "./Clients.css";
 
 /* =========================================
    HERO IMAGES
@@ -44,7 +44,7 @@ import deburringImage from "../assets/electromechanicaldeburring.png";
    CLIENT DATA
 ========================================= */
 
-const vendors = [
+const Clients = [
   { name: "Yamaha", image: yamahaLogo },
   { name: "Magna", image: magnaLogo },
   { name: "Myunghwa", image: myunghwaLogo },
@@ -190,10 +190,10 @@ const technologies = [
 ];
 
 /* =========================================
-   VENDORS PAGE
+   Clients PAGE
 ========================================= */
 
-function Vendors() {
+function Clients() {
   const heroImages = [
     heroImage1,
     heroImage2,
@@ -218,18 +218,18 @@ function Vendors() {
     <>
       <Navbar />
 
-      <main className="vendors-page">
+      <main className="Clients-page">
 
         {/* =====================================
             HERO SLIDER
         ===================================== */}
 
-        <section className="vendors-hero">
+        <section className="Clients-hero">
 
           {heroImages.map((image, index) => (
             <div
               key={index}
-              className={`vendors-hero-slide ${
+              className={`Clients-hero-slide ${
                 activeSlide === index ? "active" : ""
               }`}
               style={{
@@ -238,11 +238,11 @@ function Vendors() {
             />
           ))}
 
-          <div className="vendors-hero-overlay">
+          <div className="Clients-hero-overlay">
 
-            <div className="vendors-hero-content">
+            <div className="Clients-hero-content">
 
-              <span className="vendors-hero-label">
+              <span className="Clients-hero-label">
                 OUR NETWORK
               </span>
 
@@ -262,7 +262,7 @@ function Vendors() {
 
             </div>
 
-            <div className="vendors-hero-dots">
+            <div className="Clients-hero-dots">
 
               {heroImages.map((_, index) => (
                 <button
@@ -285,13 +285,13 @@ function Vendors() {
             CLIENTS & COLLABORATIONS
         ===================================== */}
 
-        <section className="vendors-section">
+        <section className="Clients-section">
 
-          <div className="vendors-container">
+          <div className="Clients-container">
 
-            <div className="vendors-heading">
+            <div className="Clients-heading">
 
-              <span className="vendors-label">
+              <span className="Clients-label">
                 OUR NETWORK
               </span>
 
@@ -302,18 +302,18 @@ function Vendors() {
             </div>
 
            
-<div className="vendors-logo-marquee">
-  <div className="vendors-logo-track">
+<div className="Clients-logo-marquee">
+  <div className="Clients-logo-track">
 
-    {[...vendors, ...vendors].map((vendor, index) => (
+    {[...Clients, ...Clients].map((vendor, index) => (
       <div
-        className="vendors-logo-card"
+        className="Clients-logo-card"
         key={`${vendor.name}-${index}`}
-        aria-hidden={index >= vendors.length}
+        aria-hidden={index >= Clients.length}
       >
         <img
           src={vendor.image}
-          alt={index < vendors.length ? vendor.name : ""}
+          alt={index < Clients.length ? vendor.name : ""}
           loading="lazy"
         />
       </div>
@@ -323,7 +323,7 @@ function Vendors() {
 </div>
 
 
-            <div className="vendors-description">
+            <div className="Clients-description">
 
            
 
@@ -336,13 +336,13 @@ function Vendors() {
             COLLABORATIVE ENGINEERING CAPABILITIES
         ===================================== */}
 
-        <section className="vendors-capabilities">
+        <section className="Clients-capabilities">
 
-          <div className="vendors-container">
+          <div className="Clients-container">
 
-            <div className="vendors-section-heading">
+            <div className="Clients-section-heading">
 
-              <span className="vendors-label">
+              <span className="Clients-label">
                 INDUSTRIAL ENGINEERING CAPABILITIES
               </span>
 
@@ -356,19 +356,19 @@ function Vendors() {
 
             </div>
 
-            <div className="vendors-capability-grid">
+            <div className="Clients-capability-grid">
 
               {capabilities.map((item) => (
                 <article
-                  className="vendors-capability-card"
+                  className="Clients-capability-card"
                   key={item.number}
                 >
 
-                  <span className="vendors-card-number">
+                  <span className="Clients-card-number">
                     {item.number}
                   </span>
 
-                  <div className="vendors-card-line" />
+                  <div className="Clients-card-line" />
 
                   <h3>{item.title}</h3>
 
@@ -392,13 +392,13 @@ function Vendors() {
             INTEGRATED TECHNOLOGIES
         ===================================== */}
 
-        <section className="vendors-technologies">
+        <section className="Clients-technologies">
 
-          <div className="vendors-container">
+          <div className="Clients-container">
 
-            <div className="vendors-section-heading">
+            <div className="Clients-section-heading">
 
-              <span className="vendors-label">
+              <span className="Clients-label">
                 INTEGRATED TECH STACK
               </span>
 
@@ -414,17 +414,17 @@ function Vendors() {
 
             </div>
 
-            <div className="vendors-technology-grid">
+            <div className="Clients-technology-grid">
 
               {technologies.map((technology) => (
                 <article
-                  className="vendors-technology-card"
+                  className="Clients-technology-card"
                   key={technology.number}
                 >
 
                   {/* IMAGE */}
 
-                  <div className="vendors-technology-image">
+                  <div className="Clients-technology-image">
                     <img
                       src={technology.image}
                       alt={technology.title}
@@ -434,7 +434,7 @@ function Vendors() {
 
                   {/* CARD DETAILS */}
 
-                  <div className="vendors-technology-content">
+                  <div className="Clients-technology-content">
 
                     <span>{technology.number}</span>
 
@@ -456,11 +456,11 @@ function Vendors() {
             ENGINEERING PHILOSOPHY
         ===================================== */}
 
-        <section className="vendors-philosophy">
+        <section className="Clients-philosophy">
 
-          <div className="vendors-container">
+          <div className="Clients-container">
 
-            <span className="vendors-label">
+            <span className="Clients-label">
               THE YARI APPROACH
             </span>
 
@@ -477,7 +477,7 @@ function Vendors() {
 
             <Link
               to="/contact"
-              className="vendors-contact-button"
+              className="Clients-contact-button"
             >
               Discuss Your Project
               <span>→</span>
@@ -493,4 +493,4 @@ function Vendors() {
   );
 }
 
-export default Vendors;
+export default Clients;

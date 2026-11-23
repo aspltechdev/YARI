@@ -9,7 +9,7 @@ import Industries from "./pages/Industries";
 import Products from "./pages/Products";
 import ProductDetails from "./ProductDetails";
 
-import Vendors from "./pages/vendors";
+import Clients from "./pages/Clients";
 import Career from "./pages/career";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
@@ -43,7 +43,7 @@ function App() {
       {/* OTHER PUBLIC PAGES */}
 
 
-      <Route path="/vendors" element={<Vendors />} />
+      <Route path="/Clients" element={<Clients />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/career" element={<Career />} />
       <Route path="/contact" element={<Contact />} />
