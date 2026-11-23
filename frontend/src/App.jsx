@@ -9,7 +9,7 @@ import Industries from "./pages/Industries";
 import Products from "./pages/Products";
 import ProductDetails from "./ProductDetails";
 
-import Clients from "./pages/Clients";
+
 import Career from "./pages/career";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
@@ -24,6 +24,7 @@ import IndustriesAdmin from "./pages/admin/IndustriesAdmin";
 import ProductsAdmin from "./pages/admin/ProductsAdmin";
 import GalleryAdmin from "./pages/admin/GalleryAdmin";
 import ContactAdmin from "./pages/admin/ContactAdmin";
+import Clients from "./pages/clients";
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
       {/* OTHER PUBLIC PAGES */}
 
 
-      <Route path="/Clients" element={<Clients />} />
+      <Route path="/Clients" element={<Clients/>} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/career" element={<Career />} />
       <Route path="/contact" element={<Contact />} />
